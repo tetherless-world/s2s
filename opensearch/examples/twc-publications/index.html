@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<!-- Core CSS -->
+		<link rel="stylesheet" href="ui/css/ui-smoothness/jquery-ui-1.8.16.custom.css" type="text/css">
+		<link rel="stylesheet" href="ui/css/s2s-demo.css" type="text/css"/>
+		<link>
+		<title>Welcome to S2S!</title>
+		<!-- Helper scripts -->
+		<script src="ui/scripts/lib/jquery-1.6.2.min.js" type="text/javascript"></script>
+		<script src="ui/scripts/lib/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+		<script src="ui/scripts/lib/jquery.multi-open-accordion-1.5.3.custom.js" type="text/javascript"></script>
+		<script src="ui/scripts/lib/json-serialization.js" type="text/javascript"></script>
+		<script src="ui/scripts/lib/prototype.js" type="text/javascript"></script>
+		<script src="ui/scripts/lib/load.js" type="text/javascript"></script>
+		<!-- Core scripts -->
+		<script src="ui/scripts/core/s2s-config.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/s2s-utils.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/StaticParametersPanel.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/ResultWidgetsPanel.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/WidgetPanel.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/Parameter.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/QueryInterface.js" type="text/javascript"></script>
+		<script src="ui/scripts/core/SearchService.js" type="text/javascript"></script>
+	</head>
+	<body onload="javascript:init('http://localhost:8888/twc-publications/s2s.ttl#SearchService');">
+		<table><tbody><tr>
+			<td id="s2s-search-panel" style="vertical-align:top;width:29em;float:left"></td>
+			<td id="s2s-result-panel" style="vertical-align:top"></td>
+		</tr></tbody></table>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+#s2s-result-panel .result-count
+{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:1.35em;
+	color: #000080;
+}
+#s2s-result-panel
+{
+width:100%;
+vertical-align:top;
+margin-top:0px;
+}
+#s2s-result-panel .html ul
+{
+width:100%;
+list-style:none;
+margin-top:0;
+}
+#s2s-result-panel .html ul li
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+width:100%;
+height:100%;
+text-align:center;
+margin-top:0.3em;
+border-style: solid;
+border-width: 1px;
+}
+#s2s-search-panel
+{
+font: 11px/15px arial,tahoma,helvetica,sans-serif;
+width: 33em;
+}

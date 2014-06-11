@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+					   xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+					   xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+					   xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+					   xmlns:essi="http://essi-lod.org/s2s/meta.rdf#"
+					   xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/">
+  <ShortName>ESSI-LOD Search</ShortName>
+  <Description>An OpenSearch service for linked data created from past American Geophysical Union meetings.</Description>
+  <Tags>AGU ESSI LOD</Tags>
+  <Contact>Eric Rozell</Contact>
+  <Url type="application/json" rel="essi:AuthorsQuery" template="http://essi-lod.org/s2s/search.php?request=authors&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;sections={essi:Sections?}&amp;sessions={essi:Sessions?}&amp;keywords={essi:Keywords?}&amp;years={essi:Years?}" />
+  <Url type="application/json" rel="essi:YearsQuery" template="http://essi-lod.org/s2s/search.php?request=years&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;sections={essi:Sections?}&amp;sessions={essi:Sessions?}&amp;keywords={essi:Keywords?}&amp;authors={essi:Authors?}" />
+  <Url type="application/json" rel="essi:MeetingsQuery" template="http://essi-lod.org/s2s/search.php?request=meetings&amp;q={searchTerms}&amp;years={essi:Years?}&amp;sections={essi:Sections?}&amp;sessions={essi:Sessions?}&amp;keywords={essi:Keywords?}&amp;authors={essi:Authors?}" />
+  <Url type="application/json" rel="essi:SectionsQuery" template="http://essi-lod.org/s2s/search.php?request=sections&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;years={essi:Years?}&amp;sessions={essi:Sessions?}&amp;keywords={essi:Keywords?}&amp;authors={essi:Authors?}" />
+  <Url type="application/json" rel="essi:SessionsQuery" template="http://essi-lod.org/s2s/search.php?request=sessions&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;sections={essi:Sections?}&amp;years={essi:Years?}&amp;keywords={essi:Keywords?}&amp;authors={essi:Authors?}" />
+  <Url type="application/json" rel="essi:KeywordsQuery" template="http://essi-lod.org/s2s/search.php?request=keywords&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;sections={essi:Sections?}&amp;sessions={essi:Sessions?}&amp;years={essi:Years?}&amp;authors={essi:Authors?}" />
+  <Url type="text/html" rel="essi:AbstractResultsQuery" template="http://essi-lod.org/s2s/search.php?request=abstracts&amp;q={searchTerms}&amp;meetings={essi:Meetings?}&amp;sections={essi:Sections?}&amp;sessions={essi:Sessions?}&amp;years={essi:Years?}&amp;keywords={essi:Keywords?}&amp;authors={essi:Authors?}&amp;limit={count}&amp;offset={startIndex}" />
+  <LongName>ESSI-LOD Search Service</LongName>
+  <Query role="example" essi:Years="2010"></Query>
+  <Developer>Eric Rozell</Developer>
+  <Attribution></Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+

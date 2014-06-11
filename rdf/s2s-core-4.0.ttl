@@ -1,0 +1,502 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix s2s: <http://escience.rpi.edu/ontology/sesf/s2s/4/0/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://a9.com/-/opensearch/extensions/time/1.0/> .
+@prefix opensearch: <http://a9.com/-/spec/opensearch/1.1/> .
+@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
+@prefix geo: <http://a9.com/-/opensearch/extensions/geo/1.0/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/>
+    dc:creator "Eric Rozell"^^xsd:string ;
+    dc:created "2012-03-01"^^xsd:date ;
+    a owl:Ontology ;
+    rdfs:comment "An ontology describing the core components of the S2S Framework.  These core components include s2s:Inputs from the OpenSearch specification and draft extensions, s2s:Widgets that have been created within the scope of the project, s2s:Interfaces that are commonly used in s2s:Services, and s2s:Outputs that should be used for compatibility with the core s2s:Widgets."^^xsd:string ;
+    owl:imports <http://escience.rpi.edu/ontology/sesf/s2s/4/0/> ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+geo:box
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch Geo Extension specification for a bounding box (west longitude, south latitude, east longitude, north latitude)."^^xsd:string ;
+    rdfs:label "Geo Bounding Box"^^xsd:string .
+
+time:end
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch Time Extension specification for an upper bound on a time constraint (following the RFC-3339 timestamp specification)."^^xsd:string ;
+    rdfs:label "End Time"^^xsd:string .
+
+time:start
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch Time Extension specification for a lower bound on a time constraint (following the RFC-3339 timestamp specification)."^^xsd:string ;
+    rdfs:label "Start Time"^^xsd:string .
+
+time:stop
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch Time Extension specification for an upper bound on a time constraint (following the RFC-3339 timestamp specification)."^^xsd:string ;
+    rdfs:label "Stop Time"^^xsd:string .
+
+opensearch:count
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch specification for result list limits."^^xsd:string ;
+    rdfs:label "Limit"^^xsd:string .
+
+opensearch:searchTerms
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch specification for search terms to a search service."^^xsd:string ;
+    rdfs:label "Search Terms"^^xsd:string .
+
+opensearch:startIndex
+    a s2s:Input ;
+    rdfs:comment "A parameter defined by the OpenSearch specification for result list offset."^^xsd:string ;
+    rdfs:label "Offset"^^xsd:string .
+
+:AlphaFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/AlphaFacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for that uses a multi-select XHTML input element and provides a count of results for each options, sorted alphanumerically."^^xsd:string ;
+    rdfs:label "Alphabetical Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:ContextSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ContextSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdContextJsonArray, :LabelIdContextParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
+    rdfs:label "Context Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:ResultsListQuery
+    :hasDefaultLimit "10"^^xsd:int ;
+    s2s:hasOutput :TextHtml ;
+    a s2s:SearchResultsInterface ;
+    rdfs:comment "A s2s:SearchResultsInterface that returns a list of results as HTML."^^xsd:string ;
+    rdfs:label "Get Results List"^^xsd:string .
+
+:DatasetQuery
+    :hasDefaultLimit "10"^^xsd:int ;
+    s2s:hasOutput :TextHtml ;
+    a s2s:SearchResultsInterface ;
+    rdfs:comment "A s2s:SearchResultsInterface that returns a list of results as HTML."^^xsd:string ;
+    rdfs:label "Get Results List"^^xsd:string .
+
+:DateJsonArray
+    a s2s:Output ;
+    rdfs:comment "An output format for a JSON array containing JSON array of dates with format \"YY-MM-DD\"."^^xsd:string .
+
+:DateWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DateWidget"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/DateWidget.js"^^xsd:anyURI ;
+    s2s:supportsInput time:end, time:start ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that supports any the time:start and time:end parameters from the OpenSearch extensions."^^xsd:string ;
+    rdfs:label "Date Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevAlphaFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/AlphaFacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for that uses a multi-select XHTML input element and provides a count of results for each options, sorted alphanumerically."^^xsd:string ;
+    rdfs:label "Dev Alphabetical Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevContextSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ContextSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/ContextSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdContextJsonArray, :LabelIdContextParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that creates a list of checkboxes with links to information about the items."^^xsd:string ;
+    rdfs:label "Dev Context Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevDateWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DateWidget"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/DateWidget.js"^^xsd:anyURI ;
+    s2s:supportsInput time:end, time:start ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that supports any the time:start and time:end parameters from the OpenSearch extensions."^^xsd:string ;
+    rdfs:label "Dev Date Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevDynamicDateWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicDateWidget"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/DynamicDateWidget.js"^^xsd:anyURI ;
+    s2s:supportsInput time:start, time:stop ;
+    s2s:supportsOutput :DateJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback."^^xsd:string ;
+    rdfs:label "Dev Dynamic Date Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevDynamicSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/DynamicSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdContextJsonArray, :LabelIdContextParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray, :LabelIdJsonArray, :LabelIdParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses a multiselect XHTML input element."^^xsd:string ;
+    rdfs:label "DevDynamic Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevFacetOntologyResultsTable
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.FacetOntologyResultsTable"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/FacetOntologyResultsTable.js"^^xsd:anyURI ;
+    s2s:supportsOutput :FacetOntologyResultsJson ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget that converts FacetOntology goal facet responses into an HTML table."^^xsd:string ;
+    rdfs:label "Dev FacetOntology Results Table"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.FacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/FacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:Widget that uses a multiselect XHTML input element and provides a count of results for each options."^^xsd:string ;
+    rdfs:label "Dev Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevGenericWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.GenericWidget"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A generic s2s:InputWidget that supports any s2s:Input."^^xsd:string ;
+    rdfs:label "Dev Generic Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevHierarchyFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.HierarchyFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/HierarchyFacetedSelect.js"^^xsd:anyURI ;
+    :requiresStylesheet "http://localhost/s2s/4.0/css/widgets/HierachyFacetedSelect.css"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountParentJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses an XHTML tree of input elements and provides a count of results for each options."^^xsd:string ;
+    rdfs:label "Dev Hierarchy Faceted Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevHierarchySelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.HierarchySelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/HierarchySelect.js"^^xsd:anyURI ;
+    :requiresStylesheet "http://localhost/s2s/4.0/css/widgets/HierachySelect.css"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountParentJsonArray, :LabelIdContextParentJsonArray, :LabelIdCountParentJsonArray, :LabelIdParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses an XHTML tree of input elements for each options."^^xsd:string ;
+    rdfs:label "Dev Hierarchy Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevResultsListWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/ResultsListWidget.js"^^xsd:anyURI ;
+    s2s:supportsOutput :TextHtml ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget that accepts HTML content containing a results list."^^xsd:string ;
+    rdfs:label "Dev HTML Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevOpenLayersBoundingBox
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.OpenLayersBoundingBox"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/OpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput geo:box ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter."^^xsd:string ;
+    rdfs:label "Dev Open Layers Bounding Box"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevUnsortedFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/UnsortedFacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses a multiselect XHTML input element and provides a count of results for each options, without sorting."^^xsd:string ;
+    rdfs:label "Dev Unsorted Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DevWmsOpenLayersBoundingBox
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
+    :requiresJavaScript "http://localhost/s2s/4.0/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput geo:box ;
+    s2s:supportsOutput :WmsUrl ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
+    rdfs:label "Dev WMS Open Layers Bounding Box"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DynamicDateWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicDateWidget"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/DynamicDateWidget.js"^^xsd:anyURI ;
+    s2s:supportsInput time:start, time:stop ;
+    s2s:supportsOutput :DateJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback."^^xsd:string ;
+    rdfs:label "Dynamic Date Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:DynamicSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.DynamicSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/DynamicSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdContextJsonArray, :LabelIdContextParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray, :LabelIdJsonArray, :LabelIdParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses a multiselect XHTML input element."^^xsd:string ;
+    rdfs:label "Dynamic Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:FacetOntologyResultsJson
+    a s2s:Output ;
+    rdfs:comment "An output format for FacetOntology Service results."^^xsd:string .
+
+:FacetOntologyResultsTable
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.FacetOntologyResultsTable"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/FacetOntologyResultsTable.js"^^xsd:anyURI ;
+    s2s:supportsOutput :FacetOntologyResultsJson ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget that converts FacetOntology goal facet responses into an HTML table."^^xsd:string ;
+    rdfs:label "FacetOntology Results Table"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:FacetOntologyService
+    a owl:Class ;
+    rdfs:comment "A search service described using a FacetOntology."^^xsd:string ;
+    rdfs:subClassOf s2s:SearchService .
+
+:FacetedSearch
+    a s2s:Paradigm ;
+    rdfs:comment "A s2s:Paradigm instance for faceted browse capabilities."^^xsd:string .
+
+:FacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.FacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/FacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountJsonArray, :LabelIdContextCountParentJsonArray, :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:Widget that uses a multiselect XHTML input element and provides a count of results for each options."^^xsd:string ;
+    rdfs:label "Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:FileDownloadUrl
+    a s2s:Output ;
+    rdfs:comment "An output format that provides a URL to a downloadable file."^^xsd:string .
+
+:GenericWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.GenericWidget"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/GenericWidget.js"^^xsd:anyURI ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A generic s2s:InputWidget that supports any s2s:Input."^^xsd:string ;
+    rdfs:label "Generic Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:HierarchicalSearch
+    a s2s:Paradigm ;
+    rdfs:comment "A s2s:Paradigm for hierarchical search, a faceted-like search for which there is an ordering to the updating of facets."^^xsd:string .
+
+:HierarchyFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.HierarchyFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/HierarchyFacetedSelect.js"^^xsd:anyURI ;
+    :requiresStylesheet "http://escience.rpi.edu/s2s/4.0/css/widgets/HierachyFacetedSelect.css"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountParentJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses an XHTML tree of input elements and provides a count of results for each options."^^xsd:string ;
+    rdfs:label "Hierarchy Faceted Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:HierarchySelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.HierarchySelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/HierarchySelect.js"^^xsd:anyURI ;
+    :requiresStylesheet "http://escience.rpi.edu/s2s/4.0/css/widgets/HierachySelect.css"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdContextCountParentJsonArray, :LabelIdContextParentJsonArray, :LabelIdCountParentJsonArray, :LabelIdParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses an XHTML tree of input elements for each options."^^xsd:string ;
+    rdfs:label "Hierarchy Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:HtmlWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.HtmlWidget"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/HtmlWidget.js"^^xsd:anyURI ;
+    s2s:supportsOutput :TextHtml ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget that accepts XHTML content."^^xsd:string ;
+    rdfs:label "HTML Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:ResultsListWidget
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/ResultsListWidget.js"^^xsd:anyURI ;
+    s2s:supportsOutput :TextHtml ;
+    a s2s:ResultsWidget ;
+    rdfs:comment "A s2s:ResultsWidget for results lists that accepts XHTML content."^^xsd:string ;
+    rdfs:label "Results List Widget"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:JavaScriptWidget
+    a owl:Class ;
+    rdfs:comment "A user interface component implemented using a JavaScript object prototype."^^xsd:string ;
+    rdfs:subClassOf s2s:Widget .
+
+:LabelIdContextCountJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least four members, \"label\", \"id\", \"context\" and \"count\"."^^xsd:string .
+
+:LabelIdContextCountParentJsonArray
+    a s2s:Output ;
+    rdfs:seeAlso "An s2s:Output for a JSON array containing JSON objects with at least five members, \"label\", \"id\", \"context\", \"count\", and \"parent\".  This is used for ordinal facets with hierarchical relationships."^^xsd:anyURI .
+
+:LabelIdContextJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least three members, \"label\", \"context\", and \"id\"."^^xsd:string .
+
+:LabelIdContextParentJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least four members, \"label\", \"id\", \"context\" and \"parent\"."^^xsd:string .
+
+:LabelIdCountJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least three members, \"label\", \"id\", and \"count\"."^^xsd:string .
+
+:LabelIdCountParentJsonArray
+    a s2s:Output ;
+    rdfs:seeAlso "An s2s:Output for a JSON array containing JSON objects with at least four members, \"label\", \"id\", \"count\", and \"parent\".  This is used for ordinal facets with hierarchical relationships."^^xsd:anyURI .
+
+:LabelIdJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least two members, \"label\" and \"id\"."^^xsd:string .
+
+:LabelIdParentJsonArray
+    a s2s:Output ;
+    rdfs:comment "An s2s:Output for a JSON array containing JSON objects with at least three members, \"label\", \"parent\", and \"id\"."^^xsd:string .
+
+:OpenLayersBoundingBox
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.OpenLayersBoundingBox"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/OpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput geo:box ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter."^^xsd:string ;
+    rdfs:label "Open Layers Bounding Box"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:OpenSearchService
+    a owl:Class ;
+    rdfs:comment "A search service described using an OpenSearch description document."^^xsd:string ;
+    rdfs:subClassOf s2s:SearchService .
+
+:TextHtml
+    a s2s:Output ;
+    rdfs:comment "An output format for the MIME type \"text/html\" or \"text/plain\"."^^xsd:string .
+
+:UnsortedFacetedSelect
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect"^^xsd:string ;
+    :requiresJavaScript "http://escience.rpi.edu/s2s/4.0/scripts/widgets/UnsortedFacetedSelect.js"^^xsd:anyURI ;
+    s2s:supportsOutput :LabelIdCountJsonArray, :LabelIdCountParentJsonArray ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget that uses a multiselect XHTML input element and provides a count of results for each options, without sorting."^^xsd:string ;
+    rdfs:label "Unsorted Faceted Select"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:WmsOpenLayersBoundingBox
+    :hasJavaScriptPrototype "edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox"^^xsd:string ;
+    :requiresJavaScript "http://aquarius.tw.rpi.edu/s2s/4.0/scripts/widgets/WmsOpenLayersBbox.js"^^xsd:anyURI, "http://openlayers.org/api/OpenLayers.js"^^xsd:anyURI ;
+    s2s:supportsInput geo:box ;
+    s2s:supportsOutput :WmsUrl ;
+    a :JavaScriptWidget, s2s:InputWidget ;
+    rdfs:comment "A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context."^^xsd:string ;
+    rdfs:label "WMS Open Layers Bounding Box"^^xsd:string ;
+    owl:versionInfo "4.0"^^xsd:string .
+
+:WmsUrl
+    a s2s:Output ;
+    rdfs:comment "A string pointing to a WMS service."^^xsd:string .
+
+:dtSort
+    a s2s:Input ;
+    rdfs:comment "A parameter for passing sort commands initiated by the DataTables widget"^^xsd:string ;
+    rdfs:label "Sort"^^xsd:string .
+
+:hasDefaultConfiguration
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property relating a s2s:SearchService to a XML file describing the default configuration."^^xsd:string ;
+    rdfs:domain s2s:SearchService ;
+    rdfs:range xsd:anyURI .
+
+:hasDefaultLimit
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property describing the default limit to use for a s2s:SearchResultsInterface (if paging applicable), if no other specification is made."^^xsd:string ;
+    rdfs:domain s2s:SearchResultsInterface ;
+    rdfs:range xsd:integer .
+
+:hasDelimiter
+    a owl:DatatypeProperty ;
+    rdfs:domain s2s:Input ;
+    rdfs:range xsd:string .
+
+:hasFacetCollection
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that connects a FacetOntologyService with a FacetCollection."^^xsd:string ;
+    rdfs:domain :FacetOntologyService .
+
+:hasJavaScriptPrototype
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property denoting the JavaScript object prototype used for the s2s:JavaScriptWidget"^^xsd:string ;
+    rdfs:domain :JavaScriptWidget ;
+    rdfs:range xsd:string .
+
+:hasOpenSearchDescriptionDocument
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property that connects a s2s:OpenSearchService with the URL of its OpenSearch description document."^^xsd:string ;
+    rdfs:domain :OpenSearchService ;
+    rdfs:range xsd:anyURI .
+
+:requiresJavaScript
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property connecting a s2s:JavaScriptWidget with a required JavaScript file."^^xsd:string ;
+    rdfs:domain :JavaScriptWidget ;
+    rdfs:range xsd:anyURI .
+
+:requiresStylesheet
+    a owl:DatatypeProperty ;
+    rdfs:comment "A property connecting a s2s:JavaScriptWidget with a CSS file."^^xsd:string ;
+    rdfs:domain :JavaScriptWidget ;
+    rdfs:range xsd:anyURI .
+
+s2s:Input
+    a owl:Class .
+
+s2s:InputWidget
+    a owl:Class .
+
+s2s:Output
+    a owl:Class .
+
+s2s:Paradigm
+    a owl:Class ;
+    rdfs:subClassOf s2s:Paradigm .
+
+s2s:ResultsWidget
+    a owl:Class .
+
+s2s:SearchService
+    a owl:Class .
+
+s2s:Widget
+    a owl:Class .
+
+s2s:hasOutput
+    a owl:ObjectProperty .
+
+s2s:supportsInput
+    a owl:ObjectProperty .
+
+s2s:supportsOutput
+    a owl:ObjectProperty .
+
+dc:creator
+    a owl:AnnotationProperty .
+
+dc:date
+    a owl:AnnotationProperty .
+
+owl:Thing
+    a owl:Class .
+

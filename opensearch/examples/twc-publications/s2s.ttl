@@ -1,0 +1,79 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://localhost:8888/twc-publications/s2s.ttl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix core: <http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/> .
+@prefix s2s: <http://escience.rpi.edu/ontology/sesf/s2s/3/0/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://localhost:8888/twc-publications/s2s.ttl>
+    dc:creator "Eric Rozell"^^xsd:string ;
+    a owl:Ontology ;
+    rdfs:comment "An ontology describing the metadata for the TWC Publications S2S service."^^xsd:string ;
+    owl:imports <http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/> ;
+    owl:versionInfo "1.0"^^xsd:string .
+
+:Authors
+    core:hasDelimiter " "^^xsd:string ;
+    a s2s:SearchParameter ;
+    rdfs:comment "A search parameter for publications from selected authors."^^xsd:string ;
+    rdfs:label "Authors"^^xsd:string .
+
+:AuthorsQuery
+    s2s:forParameter :Authors ;
+    s2s:hasOutputFormat core:LabelIdCountJsonArray ;
+    a s2s:ParameterQueryInterface .
+
+:Events
+    core:hasDelimiter " "^^xsd:string ;
+    a s2s:SearchParameter ;
+    rdfs:comment "A search parameter for publications from selected events."^^xsd:string ;
+    rdfs:label "Events"^^xsd:string .
+
+:EventsQuery
+    s2s:forParameter :Events ;
+    s2s:hasOutputFormat core:LabelIdCountJsonArray ;
+    a s2s:ParameterQueryInterface .
+
+:GetSparqlDescribeQuery
+    s2s:hasOutputFormat core:TextHtml ;
+    a s2s:ResultQueryInterface ;
+    rdfs:comment "A query interface that returns a SPARQL DESCRIBE query to be executed by the rdf2html service."^^xsd:string ;
+    rdfs:label "SPARQL Describe Query"^^xsd:string .
+
+:Projects
+    core:hasDelimiter " "^^xsd:string ;
+    a s2s:SearchParameter ;
+    rdfs:comment "A search parameter for publications related to any selected projects."^^xsd:string ;
+    rdfs:label "Projects"^^xsd:string .
+
+:ProjectsQuery
+    s2s:forParameter :Projects ;
+    s2s:hasOutputFormat core:LabelIdCountJsonArray ;
+    a s2s:ParameterQueryInterface .
+
+:Themes
+    core:hasDelimiter " "^^xsd:string ;
+    a s2s:SearchParameter ;
+    rdfs:comment "A search parameter for publications related to any selected research areas."^^xsd:string ;
+    rdfs:label "Research Areas"^^xsd:string .
+
+:ThemesQuery
+    s2s:forParameter :Themes ;
+    s2s:hasOutputFormat core:LabelIdCountJsonArray ;	
+    a s2s:ParameterQueryInterface .
+
+:SearchService
+    core:hasDefaultConfiguration "http://localhost:8888/twc-publications/default.xml"^^xsd:anyURI ;
+    core:hasDescriptionDocument "http://localhost:8888/twc-publications/opensearch.xml"^^xsd:anyURI ;
+    s2s:implements :AuthorsQuery, :EventsQuery, :ProjectsQuery, :ThemesQuery, :GetSparqlDescribeQuery ;
+    a core:OpenSearchService ;
+    rdfs:comment "A search service for publications on the Tetherless World Constellation website."^^xsd:string ;
+    rdfs:label "TWC Publication Service"^^xsd:string ;
+    rdfs:seeAlso "http://tw.rpi.edu"^^xsd:anyURI .
+
+:SparqlDescribeQueryText
+    a s2s:OutputFormat ;
+    rdfs:comment "An output format for the text of a SPARQL DESCRIBE query."^^xsd:string .

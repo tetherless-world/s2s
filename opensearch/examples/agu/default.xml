@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DefaultConfiguration xmlns="http://escience.rpi.edu/s2s/default-configuration/1/0/">
+	<Parameters>
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/searchTerms" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/GenericWidget" enabled="false" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Authors" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/GenericWidget" enabled="false" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Keywords" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/ContextSelect" enabled="true" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Years" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="false" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Meetings" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/ContextSelect" enabled="false" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Sections" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="false" />
+		<Parameter name="http://essi-lod.org/s2s/meta.rdf#Sessions" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/ContextSelect" enabled="false" />
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/count" ignore="true" />
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/startIndex" ignore="true" />
+	</Parameters>
+	<Results>
+		<ResultQuery name="http://essi-lod.org/s2s/meta.rdf#AbstractResultsQuery" widget="http://essi-lod.org/s2s/meta.rdf#AbstractResultsWidget" enabled="true" />
+	</Results>
+</DefaultConfiguration>

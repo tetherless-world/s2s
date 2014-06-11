@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DefaultConfiguration xmlns="http://escience.rpi.edu/s2s/default-configuration/1/0/">
+	<Parameters>
+		<Parameter name="http://a9.com/-/opensearch/extensions/geo/1.0/box" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/WmsOpenLayersBoundingBox" />
+		<Parameter name="http://a9.com/-/opensearch/extensions/time/1.0/start" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DynamicDateWidget" enabled="true" />
+		<Parameter name="http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/NumDays" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/GenericWidget" enabled="true" />
+		<Parameter name="http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/InstrumentClasses" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HierarchySelect" enabled="true" />
+		<Parameter name="http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/Instruments" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DynamicSelect" enabled="true" />
+		<Parameter name="http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/ParameterClasses" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HierarchySelect" enabled="true" />
+		<Parameter name="http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/Parameters" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DynamicSelect" enabled="true" />
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/count" ignore="true" />
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/startIndex" ignore="true" />
+	</Parameters>
+	<Results>
+		<ResultQuery name="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DatasetQuery" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HtmlWidget" enabled="true" />
+	</Results>
+</DefaultConfiguration>

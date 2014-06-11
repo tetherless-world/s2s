@@ -1,0 +1,80 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>metadata</servlet-name>
+    <servlet-class>edu.rpi.tw.sesf.s2s.web.MetadataServlet</servlet-class>
+    <init-param>
+      <param-name>s2s-properties</param-name>
+      <param-value>src/main/resources/s2s.properties</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-sources-property</param-name>
+      <param-value>s2s.sources</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-caching-property</param-name>
+      <param-value>s2s.caching</param-value>
+    </init-param>
+    <init-param>
+      <param-name>log4j-properties-location</param-name>
+      <param-value>src/main/resources/log4j.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>metadata</servlet-name>
+    <url-pattern>/metadata</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>proxy</servlet-name>
+    <servlet-class>edu.rpi.tw.sesf.s2s.web.ProxyServlet</servlet-class>
+    <init-param>
+      <param-name>s2s-properties</param-name>
+      <param-value>src/main/resources/s2s.properties</param-value>
+    </init-param>
+        <init-param>
+      <param-name>s2s-sources-property</param-name>
+      <param-value>s2s.sources</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-caching-property</param-name>
+      <param-value>s2s.caching</param-value>
+    </init-param>
+    <init-param>
+      <param-name>log4j-properties-location</param-name>
+      <param-value>WEB-INF/log4j.properties</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>proxy</servlet-name>
+    <url-pattern>/proxy</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>session</servlet-name>
+    <servlet-class>edu.rpi.tw.sesf.s2s.web.SessionServlet</servlet-class>
+    <init-param>
+      <param-name>log4j-properties-location</param-name>
+      <param-value>WEB-INF/log4j.properties</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-properties</param-name>
+      <param-value>src/main/resources/s2s.properties</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-sources-property</param-name>
+      <param-value>s2s.sources</param-value>
+    </init-param>
+    <init-param>
+      <param-name>s2s-caching-property</param-name>
+      <param-value>s2s.caching</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>session</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+</web-app>

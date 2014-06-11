@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY s2s "http://escience.rpi.edu/ontology/sesf/s2s/3/0/" >
+    <!ENTITY core "http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/" >
+    <!ENTITY s2s-essi "http://essi-lod.org/s2s/meta.rdf#" >
+]>
+
+
+<rdf:RDF xmlns="http://essi-lod.org/s2s/meta.rdf#"
+     xml:base="http://essi-lod.org/s2s/meta.rdf"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/"
+     xmlns:s2s-bcodmo="http://essi-lod.org/s2s/meta.rdf#"
+     xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo rdf:datatype="&xsd;string">1.0</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ontology describing the metadata for the ESSI-LOD S2S service.</rdfs:comment>
+        <dc:creator rdf:datatype="&xsd;string">Eric Rozell</dc:creator>
+        <owl:imports rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/forParameter -->
+
+    <owl:ObjectProperty rdf:about="&s2s;forParameter"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/hasOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="&s2s;hasOutputFormat"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/implements -->
+
+    <owl:ObjectProperty rdf:about="&s2s;implements"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/hasDefaultConfiguration -->
+
+    <owl:DatatypeProperty rdf:about="&core;hasDefaultConfiguration"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/hasDescriptionDocument -->
+
+    <owl:DatatypeProperty rdf:about="&core;hasDescriptionDocument"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/SearchParameter -->
+
+    <owl:Class rdf:about="&s2s;SearchParameter"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/OpenSearchService -->
+
+    <owl:Class rdf:about="&core;OpenSearchService"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/ParameterQueryInteface -->
+
+    <owl:Class rdf:about="&s2s;ParameterQueryInterface"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Years -->
+
+    <owl:Thing rdf:about="#Years">
+        <rdf:type rdf:resource="&s2s;SearchParameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">Years</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts from a selected year.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#YearsQuery -->
+
+    <owl:Thing rdf:about="#YearsQuery">
+        <rdf:type rdf:resource="&s2s;ParameterQueryInterface"/>
+        <s2s:forParameter rdf:resource="#Years"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#SearchService -->
+
+    <owl:Thing rdf:about="#SearchService">
+        <rdf:type rdf:resource="&core;OpenSearchService"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >ESSI-LOD Search Service</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search service to provide faceted browsing for AGU abstracts.</rdfs:comment>
+        <core:hasDefaultConfiguration rdf:datatype="&xsd;anyURI"
+            >http://essi-lod.org/s2s/default.xml</core:hasDefaultConfiguration>
+        <core:hasDescriptionDocument rdf:datatype="&xsd;anyURI"
+            >http://essi-lod.org/s2s/opensearch.xml</core:hasDescriptionDocument>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI"
+            >http://www.agu.org</rdfs:seeAlso>
+        <s2s:implements rdf:resource="#YearsQuery"/>
+        <s2s:implements rdf:resource="#MeetingsQuery"/>
+        <s2s:implements rdf:resource="#SectionsQuery"/>
+        <s2s:implements rdf:resource="#SessionsQuery"/>
+        <s2s:implements rdf:resource="#AuthorsQuery"/>
+        <s2s:implements rdf:resource="#KeywordsQuery"/>
+        <s2s:implements rdf:resource="#AbstractResultsQuery"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Meetings -->
+
+    <owl:Thing rdf:about="#Meetings">
+        <rdf:type rdf:resource="&s2s;SearchParameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">Meetings</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts from any selected meetings.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#MeetingsQuery -->
+
+    <owl:Thing rdf:about="#MeetingsQuery">
+        <rdf:type rdf:resource="&s2s;ParameterQueryInterface"/>
+        <s2s:forParameter rdf:resource="#Meetings"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Sections -->
+
+    <owl:Thing rdf:about="#Sections">
+        <rdf:type rdf:resource="&s2s;SearchParameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sections</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts from any selected sections.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#SectionsQuery -->
+
+    <s2s:ParameterQueryInterface rdf:about="#SectionsQuery">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <s2s:forParameter rdf:resource="#Sections"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </s2s:ParameterQueryInterface>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Sessions -->
+
+    <owl:Thing rdf:about="#Sessions">
+        <rdf:type rdf:resource="&s2s;SearchParameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sessions</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts any selected sessions.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#SessionsQuery -->
+
+    <s2s:ParameterQueryInterface rdf:about="#SessionsQuery">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <s2s:forParameter rdf:resource="#Sessions"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </s2s:ParameterQueryInterface>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Authors -->
+
+    <s2s:SearchParameter rdf:about="#Authors">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Authors</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts written by any selected authors.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </s2s:SearchParameter>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#AuthorsQuery -->
+
+    <owl:Thing rdf:about="#AuthorsQuery">
+        <rdf:type rdf:resource="&s2s;ParameterQueryInterface"/>
+        <s2s:forParameter rdf:resource="#Authors"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#Keywords -->
+
+    <s2s:SearchParameter rdf:about="#Keywords">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Keywords</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A search parameter for abstracts listing any selected keywords.</rdfs:comment>
+	<core:hasDelimiter rdf:datatype="&xsd;string">;</core:hasDelimiter>
+    </s2s:SearchParameter>
+
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#KeywordsQuery -->
+
+    <s2s:ParameterQueryInterface rdf:about="#KeywordsQuery">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <s2s:forParameter rdf:resource="#Keywords"/>
+        <s2s:hasOutputFormat rdf:resource="&core;LabelIdContextCountJsonArray"/>
+    </s2s:ParameterQueryInterface>
+
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#AbstractResultsQuery -->
+
+    <owl:Thing rdf:about="#AbstractResultsQuery">
+      <rdf:type rdf:resource="&s2s;ResultQueryInterface"/>
+        <rdfs:label rdf:datatype="&xsd;string">AGU Abstract Results Query</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A query interface that returns JSON with information about available AGU abstracts.</rdfs:comment>
+        <s2s:hasOutputFormat rdf:resource="#AbstractJsonArray"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#AbstractJsonArray -->
+
+    <owl:Thing rdf:about="#AbstractJsonArray">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for a JSON array containing JSON objects with at least three members, &quot;id&quot;, &quot;title&quot; and &quot;description&quot;.</rdfs:comment>
+    </owl:Thing>    
+
+
+
+    <!-- http://essi-lod.org/s2s/meta.rdf#AbstractResultsWidget -->
+
+    <owl:Thing rdf:about="#AbstractResultsWidget">
+        <rdf:type rdf:resource="&core;JavaScriptWidget"/>
+        <rdf:type rdf:resource="&s2s;SearchWidget"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Abstract Results Widget</rdfs:label>
+        <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A s2s:SearchWidget that presents AGU abstracts as a Google-style results list.</rdfs:comment>
+        <core:hasJavaScriptPrototype rdf:datatype="&xsd;string"
+            >org.essilod.s2s.AbstractResultsWidget</core:hasJavaScriptPrototype>
+        <core:requiresStylesheet rdf:datatype="&xsd;anyURI"
+            >http://essi-lod.org/s2s/AbstractResultsWidget.css</core:requiresStylesheet>
+        <core:requiresJavaScript rdf:datatype="&xsd;anyURI"
+            >http://essi-lod.org/s2s/AbstractResultsWidget.js</core:requiresJavaScript>
+	<s2s:supportsOutputFormat rdf:resource="#AbstractJsonArray"/>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/LabelIdContextCountJsonArray -->
+
+    <owl:Thing rdf:about="&core;LabelIdContextCountJsonArray"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

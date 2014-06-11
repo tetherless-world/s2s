@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+					   xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+					   xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+					   xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+					   xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/"
+					   xmlns:vsto="http://aquarius.tw.rpi.edu/s2s/VSTO/0.2/s2s.rdf#">
+  <ShortName>VSTO Search</ShortName>
+  <Description>http://escience.rpi.edu/ontology/sesf/s2s-vsto/1/0/VstoSearchService</Description>
+  <Tags></Tags>
+  <Contact>Eric Rozell</Contact>
+  <Url type="text/html" rel="vsto:WmsQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=wms" />
+  <Url type="text/html" rel="vsto:InstrumentsQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=instruments&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instrumentClasses={vsto:InstrumentClasses?}&amp;parameters={vsto:Parameters?}&amp;parameterClasses={vsto:ParameterClasses?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="text/html" rel="vsto:InstrumentClassesQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=instrumentClasses&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instruments={vsto:Instruments?}&amp;parameters={vsto:Parameters?}&amp;parameterClasses={vsto:ParameterClasses?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="text/html" rel="vsto:ParametersQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=parameters&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instruments={vsto:Instruments?}&amp;instrumentClasses={vsto:InstrumentClasses?}&amp;parameterClasses={vsto:ParameterClasses?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="text/html" rel="vsto:ParameterClassesQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=parameterClasses&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instruments={vsto:Instruments?}&amp;instrumentClasses={vsto:InstrumentClasses?}&amp;parameters={vsto:Parameters?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="text/html" rel="vsto:VstoResultsQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=results&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instruments={vsto:Instruments?}&amp;instrumentClasses={vsto:InstrumentClasses?}&amp;parameters={vsto:Parameters?}&amp;parameterClasses={vsto:ParameterClasses?}&amp;limit={count}&amp;offset={startIndex}" />
+  <Url type="text/html" rel="vsto:DatesQuery" template="http://aquarius.tw.rpi.edu/s2s/VSTO/search.php?request=dates&amp;bbox={geo:box?}&amp;start={time:start?}&amp;ndays={vsto:NumDays?}&amp;year={vsto:Year?}&amp;month={vsto:Month?}&amp;instruments={vsto:Instruments?}&amp;instrumentClasses={vsto:InstrumentClasses?}&amp;parameters={vsto:Parameters?}&amp;parameterClasses={vsto:ParameterClasses?}&amp;limit={count}&amp;offset={startIndex}" />
+  <LongName>VSTO Search Service</LongName>
+  <Query role="example" geo:box="140,10,145,15"></Query>
+  <Developer>Eric Rozell</Developer>
+  <Attribution></Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+

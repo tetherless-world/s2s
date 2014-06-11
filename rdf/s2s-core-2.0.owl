@@ -1,0 +1,732 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY opensearch "http://a9.com/-/spec/opensearch/1.1/" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY s2s "http://escience.rpi.edu/ontology/sesf/s2s/2/0/" >
+    <!ENTITY geo "http://a9.com/-/opensearch/extensions/geo/1.0/" >
+    <!ENTITY time "http://a9.com/-/opensearch/extensions/time/1.0/" >
+    <!ENTITY s2s-core "http://escience.rpi.edu/ontology/sesf/s2s-core/1/0/" >
+]>
+
+
+<rdf:RDF xmlns="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/"
+     xml:base="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:s2s-core="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/"
+     xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/2/0/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+     xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An ontology describing the core components of the S2S web portal.</rdfs:comment>
+        <dc:creator rdf:datatype="&xsd;string">Eric Rozell</dc:creator>
+        <owl:imports rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/2/0/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/forParameter -->
+
+    <owl:ObjectProperty rdf:about="&s2s;forParameter"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/hasOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="&s2s;hasOutputFormat"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/supportsQueryOutput -->
+
+    <owl:ObjectProperty rdf:about="&s2s;supportsQueryOutput"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/hasCallbackFunction -->
+
+    <owl:DatatypeProperty rdf:about="&s2s;hasCallbackFunction"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/hasDefaultLimit -->
+
+    <owl:DatatypeProperty rdf:about="&s2s;hasDefaultLimit"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/hasGeneratorFunction -->
+
+    <owl:DatatypeProperty rdf:about="&s2s;hasGeneratorFunction"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/hasOutputFunction -->
+
+    <owl:DatatypeProperty rdf:about="&s2s;hasOutputFunction"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/requiresScript -->
+
+    <owl:DatatypeProperty rdf:about="&s2s;requiresScript"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/GenericParameterWidget -->
+
+    <owl:Class rdf:about="&s2s;GenericParameterWidget"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/MultiSelectWidget -->
+
+    <owl:Class rdf:about="&s2s;MultiSelectWidget"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/OutputFormat -->
+
+    <owl:Class rdf:about="&s2s;OutputFormat"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/Parameter -->
+
+    <owl:Class rdf:about="&s2s;Parameter"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/ResultWidget -->
+
+    <owl:Class rdf:about="&s2s;ResultWidget"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/Results -->
+
+    <owl:Class rdf:about="&s2s;Results"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/SearchWidget -->
+
+    <owl:Class rdf:about="&s2s;SearchWidget"/>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/2/0/StaticParameterWidget -->
+
+    <owl:Class rdf:about="&s2s;StaticParameterWidget"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://a9.com/-/opensearch/extensions/geo/1.0/box -->
+
+    <s2s:Parameter rdf:about="&geo;box">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Geo Bounding Box</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch Geo Extension specification for a bounding box (west longitude, south latitude, east longitude, north latitude).</rdfs:comment>
+    </s2s:Parameter>
+    
+
+
+    <!-- http://a9.com/-/opensearch/extensions/time/1.0/end -->
+
+    <owl:Thing rdf:about="&time;end">
+        <rdf:type rdf:resource="&s2s;Parameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">End Time</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch Time Extension specification for an upper bound on a time constraint (following the RFC-3339 timestamp specification).</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://a9.com/-/opensearch/extensions/time/1.0/start -->
+
+    <owl:Thing rdf:about="&time;start">
+        <rdf:type rdf:resource="&s2s;Parameter"/>
+        <rdfs:label rdf:datatype="&xsd;string">Start Time</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch Time Extension specification for a lower bound on a time constraint (following the RFC-3339 timestamp specification).</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://a9.com/-/spec/opensearch/1.1/searchTerms -->
+
+    <s2s:Parameter rdf:about="&opensearch;searchTerms">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Search Terms</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch specification for search terms to a search service.</rdfs:comment>
+    </s2s:Parameter>
+
+
+
+    <!-- http://a9.com/-/spec/opensearch/1.1/startIndex -->
+
+    <s2s:Parameter rdf:about="&opensearch;startIndex">
+      <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Offset</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch specification for result list offset.</rdfs:comment>
+    </s2s:Parameter>
+
+
+
+    <!-- http://a9.com/-/spec/opensearch/1.1/count -->
+
+    <s2s:Parameter rdf:about="&opensearch;count">
+      <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Limit</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter defined by the OpenSearch specification for result list limits.</rdfs:comment>
+    </s2s:Parameter>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/dtSort -->
+
+    <s2s:Parameter rdf:about="dtSort">
+      <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Sort</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A parameter for passing sort commands initiated by the DataTables widget</rdfs:comment>
+    </s2s:Parameter>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DatasetQuery -->
+
+    <owl:Thing rdf:about="DatasetQuery">
+        <rdf:type rdf:resource="&s2s;Results"/>
+        <rdfs:label rdf:datatype="&xsd;string">Get Datasets</rdfs:label>
+        <s2s:hasDefaultLimit rdf:datatype="&xsd;int">10</s2s:hasDefaultLimit>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A query interface that returns HTML with information about available datasets.</rdfs:comment>
+        <s2s:hasOutputFormat rdf:resource="TextHtml"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DataTableQuery -->
+
+    <owl:Thing rdf:about="DataTableQuery">
+        <rdf:type rdf:resource="&s2s;Results"/>
+        <rdfs:label rdf:datatype="&xsd;string">Get Data Table</rdfs:label>
+        <s2s:hasDefaultLimit rdf:datatype="&xsd;int">10</s2s:hasDefaultLimit>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A query interface that returns a JSON response for the DataTableWidget</rdfs:comment>
+        <s2s:hasOutputFormat rdf:resource="DataTableJson"/>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DynamicDateWidget -->
+
+    <s2s:SearchWidget rdf:about="DynamicDateWidget">
+	<rdf:type rdf:resource="&owl;Thing"/>
+	<rdfs:label rdf:datatype="&xsd;string">Dynamic Date Widget</rdfs:label>
+	<rdfs:comment rdf:datatype="&xsd;string"
+            >A S2S Widget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback.</rdfs:comment>
+                <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+					 >dynamicDateWidgetCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >dynamicDateWidgetGenerator</s2s:hasGeneratorFunction>
+	<s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/DynamicDateWidget.js</s2s:requiresScript>
+        <s2s:forParameter rdf:resource="&time;start"/>
+	<s2s:forParameter rdf:resource="&time;stop"/>
+	<s2s:supportsQueryOutput rdf:resource="DateJsonArray"/>
+    </s2s:SearchWidget>
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DateWidget -->
+
+    <s2s:SearchWidget rdf:about="DateWidget">
+        <rdf:type rdf:resource="&s2s;StaticParameterWidget"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Date Widget</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A S2S Widget that supports any the time:start and time:end parameters from the OpenSearch extensions.</rdfs:comment>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >dateWidgetGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/DateWidget.js</s2s:requiresScript>
+        <s2s:forParameter rdf:resource="&time;end"/>
+        <s2s:forParameter rdf:resource="&time;start"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:SearchWidget>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DynamicSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="DynamicSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Dynamic Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses a multiselect XHTML input element.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >dynamicSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >dynamicSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/DynamicSelect.js</s2s:requiresScript>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountJsonArray"/>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdJsonArray"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/FacetedSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="FacetedSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Faceted Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses a multiselect XHTML input element and provides a count of results for each options.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >facetedSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >facetedSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/FacetedSelect.js</s2s:requiresScript>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountJsonArray"/><s2s:supportsQueryOutput rdf:resource="LabelIdContextCountJsonArray"/>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/ContextSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="ContextSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Context Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses a multiselect XHTML input element and provides a count of results for each options, as well as a link to context.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >contextSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >contextSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/ContextSelect.js</s2s:requiresScript>
+	<s2s:requiresStylesheet rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/css/widgets/ContextSelect.css</s2s:requiresStylesheet>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdContextCountJsonArray"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HierarchySelect -->
+
+    <s2s:MultiSelectWidget rdf:about="HierarchySelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Hierarchy Widget</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses an XHTML tree of input elements for each options.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >hierarchySelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >hierarchySelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/HierarchySelect.js</s2s:requiresScript>
+	<s2s:requiresStylesheet rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/css/widgets/HierarchySelect.css</s2s:requiresStylesheet>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdParentJsonArray"/>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HierarchyFacetedSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="HierarchyFacetedSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Hierarchy Faceted Widget</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses an XHTML tree of input elements and provides a count of results for each options.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >hierarchyFacetedSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >hierarchyFacetedSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/HierarchyFacetedSelect.js</s2s:requiresScript>
+	<s2s:requiresStylesheet rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/css/widgets/HierarchyFacetedSelect.css</s2s:requiresStylesheet>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/FullHierarchySelect -->
+
+    <s2s:MultiSelectWidget rdf:about="FullHierarchySelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Full Hierarchy Select Widget</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses an XHTML tree of input elements and provides a count of results for each options.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >fullHierarchySelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >fullHierarchySelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://aquarius.tw.rpi.edu/s2s/2.0/ui/scripts/widgets/FullHierarchySelect.js</s2s:requiresScript>
+	<s2s:requiresStylesheet rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/css/widgets/FullHierarchyFacetedSelect.css</s2s:requiresStylesheet>
+        <s2s:supportsQueryOutput rdf:resource="DataTreeJsonObject"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/AlphaFacetedSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="AlphaFacetedSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Alphabetical Faceted Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses a multiselect XHTML input element and provides a count of results for each options, sorted alphanumerically.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >alphaFacetedSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >alphaFacetedSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/AlphaFacetedSelect.js</s2s:requiresScript>
+	<s2s:supportsQueryOutput rdf:resource="LabelIdCountJsonArray"/><s2s:supportsQueryOutput rdf:resource="LabelIdContextCountJsonArray"/>
+	<s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/UnsortedFacetedSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="UnsortedFacetedSelect">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Unsorted Faceted Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses a multiselect XHTML input element and provides a count of results for each options, without sorting.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >unsortedFacetedSelectCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >unsortedFacetedSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/UnsortedFacetedSelect.js</s2s:requiresScript>
+	<s2s:supportsQueryOutput rdf:resource="LabelIdCountJsonArray"/><s2s:supportsQueryOutput rdf:resource="LabelIdContextCountJsonArray"/>
+	<s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/ChosenSelect -->
+
+    <s2s:MultiSelectWidget rdf:about="ChosenSelect">
+      <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Chosen Select</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget for S2S Multi-Select Parameters that uses the Chosen JavaScript library for multiselect.</rdfs:comment>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >chosenSelectCallback</s2s:hasCallbackFunction>
+	<s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >chosenSelectGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/ChosenSelect.js</s2s:requiresScript>
+	<s2s:requiresScript rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/scripts/lib/chosen.jquery.min.js</s2s:requiresScript>
+	<s2s:requiresStylesheet rdf:datatype="&xsd;anyURI"
+	    >http://escience.rpi.edu/s2s/2.0/css/chosen/chosen.css</s2s:requiresStylesheet>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountJsonArray"/><s2s:supportsQueryOutput rdf:resource="LabelIdContextCountJsonArray"/>
+        <s2s:supportsQueryOutput rdf:resource="LabelIdCountParentJsonArray"/>
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:MultiSelectWidget>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/FileDownloadUrl -->
+
+    <owl:Thing rdf:about="FileDownloadUrl">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format that provides a URL to a downloadable file.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/GenericWidget -->
+
+    <s2s:GenericParameterWidget rdf:about="GenericWidget">
+        <rdf:type rdf:resource="&s2s;SearchWidget"/>
+        <rdf:type rdf:resource="&s2s;StaticParameterWidget"/>
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:label rdf:datatype="&xsd;string">Generic Widget</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A generic S2S Widget that supports any S2S Parameter.</rdfs:comment>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >genericWidgetGenerator</s2s:hasGeneratorFunction>
+        <s2s:hasOutputFunction rdf:datatype="&xsd;string"
+            >genericWidgetPrinter</s2s:hasOutputFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/GenericWidget.js</s2s:requiresScript>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </s2s:GenericParameterWidget>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HtmlWidget -->
+
+    <owl:Thing rdf:about="HtmlWidget">
+        <rdf:type rdf:resource="&s2s;ResultWidget"/>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >htmlWidgetCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >htmlWidgetGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/HtmlWidget.js</s2s:requiresScript>
+        <s2s:supportsQueryOutput rdf:resource="TextHtml"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </owl:Thing>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DataTableWidget -->
+
+    <owl:Thing rdf:about="DataTableWidget">
+        <rdf:type rdf:resource="&s2s;ResultWidget"/>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >dataTableWidgetCallback</s2s:hasCallbackFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >dataTableWidgetGenerator</s2s:hasGeneratorFunction>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/DataTableWidget.js</s2s:requiresScript>
+        <s2s:supportsQueryOutput rdf:resource="DataTableJson"/>
+        <owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/LabelIdCountJsonArray -->
+
+    <owl:Thing rdf:about="LabelIdCountJsonArray">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for a JSON array containing JSON objects with at least three members, &quot;label&quot;, &quot;id&quot;, and &quot;count&quot;.</rdfs:comment>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/LabelIdContextCountJsonArray -->
+
+    <owl:Thing rdf:about="LabelIdContextCountJsonArray">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for a JSON array containing JSON objects with at least four members, &quot;label&quot;, &quot;id&quot;, &quot;context&quot;, and &quot;count&quot;.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DataTreeJsonObject -->
+
+    <s2s:OutputFormat rdf:about="DataTreeJsonObject">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI"
+            >A JSON object with two elements, "data" and "tree".  The "data" element contains IDs and counts which will show up in the tree.  The "tree" element contains an etire class hierarchy.</rdfs:seeAlso>
+    </s2s:OutputFormat>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/LabelIdCountParentJsonArray -->
+
+    <s2s:OutputFormat rdf:about="LabelIdCountParentJsonArray">
+        <rdf:type rdf:resource="&owl;Thing"/>
+        <rdfs:seeAlso rdf:datatype="&xsd;anyURI"
+            >An output format for a JSON array containing JSON objects with at least three members, &quot;label&quot;, &quot;id&quot;, &quot;count&quot;, and &quot;parent&quot;.  This is used for ordinal facets with hierarchical relationships.</rdfs:seeAlso>
+    </s2s:OutputFormat>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DateJsonArray -->
+
+    <owl:Thing rdf:about="DateIdJsonArray">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for a JSON array containing JSON objects of dates with format &quot;YY-MM-DD&quot;.</rdfs:comment>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/LabelIdJsonArray -->
+
+    <owl:Thing rdf:about="LabelIdJsonArray">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for a JSON array containing JSON objects with at least two members, &quot;label&quot; and &quot;id&quot;.</rdfs:comment>
+    </owl:Thing>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/OpenLayersBoundingBox -->
+
+    <owl:Thing rdf:about="OpenLayersBoundingBox">
+        <rdf:type rdf:resource="&s2s;SearchWidget"/>
+        <rdf:type rdf:resource="&s2s;StaticParameterWidget"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >Open Layers Bounding Box</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A S2S widget for selecting the geo:box parameter.</rdfs:comment>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://openlayers.org/api/OpenLayers.js</s2s:requiresScript>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://escience.rpi.edu/s2s/2.0/scripts/widgets/OpenLayersBbox.js</s2s:requiresScript>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >openLayersBoundingBoxGenerator</s2s:hasGeneratorFunction>
+        <s2s:forParameter rdf:resource="&geo;box"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/WmsOpenLayersBoundingBox -->
+
+    <owl:Thing rdf:about="WmsOpenLayersBoundingBox">
+      <rdf:type rdf:resource="&s2s;SearchWidget"/>
+        <rdfs:label rdf:datatype="&xsd;string"
+            >WMS Open Layers Bounding Box</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A S2S widget for selecting the geo:box parameter.</rdfs:comment>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://openlayers.org/api/OpenLayers.js</s2s:requiresScript>
+        <s2s:requiresScript rdf:datatype="&xsd;anyURI"
+            >http://aquarius.tw.rpi.edu/s2s/2.0/ui/scripts/widgets/WmsOpenLayersBbox.js</s2s:requiresScript>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >wmsOpenLayersBoundingBoxGenerator</s2s:hasGeneratorFunction>
+        <s2s:hasGeneratorFunction rdf:datatype="&xsd;string"
+            >wmsOpenLayersBoundingBoxGenerator</s2s:hasGeneratorFunction>
+        <s2s:hasCallbackFunction rdf:datatype="&xsd;string"
+            >wmsOpenLayersBoundingBoxCallback</s2s:hasCallbackFunction>
+        <s2s:forParameter rdf:resource="&geo;box"/>
+	<s2s:supportsQueryOutput rdf:resource="WmsUrl"/>
+	<owl:versionInfo rdf:datatype="&xsd;string">2.0</owl:versionInfo>
+    </owl:Thing>
+
+    
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/TextHtml -->
+
+    <owl:Thing rdf:about="TextHtml">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for the MIME type &quot;text/html&quot;.</rdfs:comment>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/WmsUrl -->
+
+    <owl:Thing rdf:about="WmsUrl">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A string pointing to a WMS service.</rdfs:comment>
+    </owl:Thing>
+
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/DataTableJson -->
+
+    <owl:Thing rdf:about="DataTableJson">
+        <rdf:type rdf:resource="&s2s;OutputFormat"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An output format for the JSON response used by the DataTableWidget.</rdfs:comment>
+    </owl:Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

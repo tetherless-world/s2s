@@ -1,0 +1,1221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/4/0/" xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Eric Rozell</dc:creator>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-03-01</dc:created>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An ontology describing the core components of the S2S Framework.  These core components include s2s:Inputs from the OpenSearch specification and draft extensions, s2s:Widgets that have been created within the scope of the project, s2s:Interfaces that are commonly used in s2s:Services, and s2s:Outputs that should be used for compatibility with the core s2s:Widgets.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <owl:imports rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/geo/1.0/box">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/geo/1.0/box">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch Geo Extension specification for a bounding box (west longitude, south latitude, east longitude, north latitude).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/geo/1.0/box">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Geo Bounding Box</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/end">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/end">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch Time Extension specification for an upper bound on a time constraint (following the RFC-3339 timestamp specification).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/end">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">End Time</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/start">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/start">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch Time Extension specification for a lower bound on a time constraint (following the RFC-3339 timestamp specification).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/start">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Start Time</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/stop">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/stop">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch Time Extension specification for an upper bound on a time constraint (following the RFC-3339 timestamp specification).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/opensearch/extensions/time/1.0/stop">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Stop Time</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/count">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/count">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch specification for result list limits.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/count">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Limit</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/searchTerms">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/searchTerms">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch specification for search terms to a search service.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/searchTerms">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Search Terms</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/startIndex">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/startIndex">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter defined by the OpenSearch specification for result list offset.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://a9.com/-/spec/opensearch/1.1/startIndex">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Offset</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/AlphaFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for that uses a multi-select XHTML input element and provides a count of results for each options, sorted alphanumerically.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Alphabetical Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/AlphaFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.ContextSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/ContextSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that creates a list of checkboxes with links to information about the items.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Context Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ContextSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListQuery">
+    <hasDefaultLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</hasDefaultLimit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListQuery">
+    <s2s:hasOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListQuery">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchResultsInterface"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListQuery">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:SearchResultsInterface that returns a list of results as HTML.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListQuery">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Get Results List</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DatasetQuery">
+    <hasDefaultLimit rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</hasDefaultLimit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DatasetQuery">
+    <s2s:hasOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DatasetQuery">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchResultsInterface"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DatasetQuery">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:SearchResultsInterface that returns a list of results as HTML.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DatasetQuery">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Get Results List</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An output format for a JSON array containing JSON array of dates with format "YY-MM-DD".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DateWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/DateWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/end"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/start"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that supports any the time:start and time:end parameters from the OpenSearch extensions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Date Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/AlphaFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for that uses a multi-select XHTML input element and provides a count of results for each options, sorted alphanumerically.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Alphabetical Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevAlphaFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.ContextSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/ContextSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that creates a list of checkboxes with links to information about the items.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Context Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevContextSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DateWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/DateWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/end"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/start"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that supports any the time:start and time:end parameters from the OpenSearch extensions.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Date Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDateWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DynamicDateWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/DynamicDateWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/start"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/stop"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Dynamic Date Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicDateWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DynamicSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/DynamicSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses a multiselect XHTML input element.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DevDynamic Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevDynamicSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.FacetOntologyResultsTable</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/FacetOntologyResultsTable.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsJson"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:ResultsWidget that converts FacetOntology goal facet responses into an HTML table.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev FacetOntology Results Table</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetOntologyResultsTable">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.FacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/FacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:Widget that uses a multiselect XHTML input element and provides a count of results for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.GenericWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/GenericWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A generic s2s:InputWidget that supports any s2s:Input.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Generic Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevGenericWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.HierarchyFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/HierarchyFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <requiresStylesheet rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/css/widgets/HierachyFacetedSelect.css</requiresStylesheet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses an XHTML tree of input elements and provides a count of results for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Hierarchy Faceted Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchyFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.HierarchySelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/HierarchySelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <requiresStylesheet rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/css/widgets/HierachySelect.css</requiresStylesheet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses an XHTML tree of input elements for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Hierarchy Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevHierarchySelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/ResultsListWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:ResultsWidget that accepts HTML content containing a results list.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev HTML Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevResultsListWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.OpenLayersBoundingBox</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/OpenLayersBbox.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openlayers.org/api/OpenLayers.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/geo/1.0/box"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for selecting the geo:box parameter.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Open Layers Bounding Box</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevOpenLayersBoundingBox">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/UnsortedFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses a multiselect XHTML input element and provides a count of results for each options, without sorting.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev Unsorted Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevUnsortedFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://localhost/s2s/4.0/scripts/widgets/WmsOpenLayersBbox.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openlayers.org/api/OpenLayers.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/geo/1.0/box"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsUrl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dev WMS Open Layers Bounding Box</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DevWmsOpenLayersBoundingBox">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DynamicDateWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/DynamicDateWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/start"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/time/1.0/stop"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DateJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that supports the time:start and time:end parameters from the OpenSearch extensions if there is a dynamic date availability callback.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dynamic Date Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicDateWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.DynamicSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/DynamicSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses a multiselect XHTML input element.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dynamic Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/DynamicSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsJson">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsJson">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An output format for FacetOntology Service results.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.FacetOntologyResultsTable</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/FacetOntologyResultsTable.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsJson"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:ResultsWidget that converts FacetOntology goal facet responses into an HTML table.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FacetOntology Results Table</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyResultsTable">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyService">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A search service described using a FacetOntology.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyService">
+    <rdfs:subClassOf rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSearch">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Paradigm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSearch">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:Paradigm instance for faceted browse capabilities.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.FacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/FacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:Widget that uses a multiselect XHTML input element and provides a count of results for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FileDownloadUrl">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FileDownloadUrl">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An output format that provides a URL to a downloadable file.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.GenericWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/GenericWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A generic s2s:InputWidget that supports any s2s:Input.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Generic Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/GenericWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchicalSearch">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Paradigm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchicalSearch">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:Paradigm for hierarchical search, a faceted-like search for which there is an ordering to the updating of facets.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.HierarchyFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/HierarchyFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <requiresStylesheet rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/css/widgets/HierachyFacetedSelect.css</requiresStylesheet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses an XHTML tree of input elements and provides a count of results for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hierarchy Faceted Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchyFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.HierarchySelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/HierarchySelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <requiresStylesheet rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/css/widgets/HierachySelect.css</requiresStylesheet>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses an XHTML tree of input elements for each options.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hierarchy Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HierarchySelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.HtmlWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/HtmlWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:ResultsWidget that accepts XHTML content.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HTML Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/HtmlWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/ResultsListWidget.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:ResultsWidget for results lists that accepts XHTML content.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Results List Widget</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/ResultsListWidget">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A user interface component implemented using a JavaScript object prototype.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget">
+    <rdfs:subClassOf rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Widget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least four members, "label", "id", "context" and "count".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextCountParentJsonArray">
+    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">An s2s:Output for a JSON array containing JSON objects with at least five members, "label", "id", "context", "count", and "parent".  This is used for ordinal facets with hierarchical relationships.</rdfs:seeAlso>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least three members, "label", "context", and "id".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdContextParentJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least four members, "label", "id", "context" and "parent".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least three members, "label", "id", and "count".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray">
+    <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">An s2s:Output for a JSON array containing JSON objects with at least four members, "label", "id", "count", and "parent".  This is used for ordinal facets with hierarchical relationships.</rdfs:seeAlso>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least two members, "label" and "id".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdParentJsonArray">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An s2s:Output for a JSON array containing JSON objects with at least three members, "label", "parent", and "id".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.OpenLayersBoundingBox</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/OpenLayersBbox.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openlayers.org/api/OpenLayers.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/geo/1.0/box"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for selecting the geo:box parameter.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Open Layers Bounding Box</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenLayersBoundingBox">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenSearchService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenSearchService">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A search service described using an OpenSearch description document.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenSearchService">
+    <rdfs:subClassOf rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/TextHtml">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An output format for the MIME type "text/html" or "text/plain".</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://escience.rpi.edu/s2s/4.0/scripts/widgets/UnsortedFacetedSelect.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/LabelIdCountParentJsonArray"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget that uses a multiselect XHTML input element and provides a count of results for each options, without sorting.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unsorted Faceted Select</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/UnsortedFacetedSelect">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <hasJavaScriptPrototype rdf:datatype="http://www.w3.org/2001/XMLSchema#string">edu.rpi.tw.sesf.s2s.widgets.WmsOpenLayersBoundingBox</hasJavaScriptPrototype>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://aquarius.tw.rpi.edu/s2s/4.0/scripts/widgets/WmsOpenLayersBbox.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <requiresJavaScript rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://openlayers.org/api/OpenLayers.js</requiresJavaScript>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <s2s:supportsInput rdf:resource="http://a9.com/-/opensearch/extensions/geo/1.0/box"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <s2s:supportsOutput rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsUrl"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A s2s:InputWidget for selecting the geo:box parameter and using a dynamic WMS response to provide map context.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WMS Open Layers Bounding Box</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsOpenLayersBoundingBox">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">4.0</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsUrl">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/WmsUrl">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A string pointing to a WMS service.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/dtSort">
+    <rdf:type rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/dtSort">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter for passing sort commands initiated by the DataTables widget</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/dtSort">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sort</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultConfiguration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultConfiguration">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property relating a s2s:SearchService to a XML file describing the default configuration.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultConfiguration">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultConfiguration">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultLimit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultLimit">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property describing the default limit to use for a s2s:SearchResultsInterface (if paging applicable), if no other specification is made.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultLimit">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchResultsInterface"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDefaultLimit">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDelimiter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDelimiter">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasDelimiter">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasFacetCollection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasFacetCollection">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property that connects a FacetOntologyService with a FacetCollection.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasFacetCollection">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/FacetOntologyService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasJavaScriptPrototype">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasJavaScriptPrototype">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property denoting the JavaScript object prototype used for the s2s:JavaScriptWidget</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasJavaScriptPrototype">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasJavaScriptPrototype">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasOpenSearchDescriptionDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasOpenSearchDescriptionDocument">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property that connects a s2s:OpenSearchService with the URL of its OpenSearch description document.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasOpenSearchDescriptionDocument">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/OpenSearchService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/hasOpenSearchDescriptionDocument">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresJavaScript">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresJavaScript">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property connecting a s2s:JavaScriptWidget with a required JavaScript file.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresJavaScript">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresJavaScript">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresStylesheet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresStylesheet">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A property connecting a s2s:JavaScriptWidget with a CSS file.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresStylesheet">
+    <rdfs:domain rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/JavaScriptWidget"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/requiresStylesheet">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Input">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Output">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Paradigm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Paradigm">
+    <rdfs:subClassOf rdf:resource="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Paradigm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/Widget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/hasOutput">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/supportsInput">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://escience.rpi.edu/ontology/sesf/s2s/4/0/supportsOutput">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

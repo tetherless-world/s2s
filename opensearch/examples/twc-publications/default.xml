@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DefaultConfiguration xmlns="http://escience.rpi.edu/s2s/default-configuration/1/0/">
+	<Parameters>
+	        <!-- Add each parameter you want in the interface, in the order you want them; optionally, add the default widget -->
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/searchTerms" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/GenericWidget" enabled="true" />
+		<Parameter name="http://a9.com/-/opensearch/extensions/time/1.0/start" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/DateWidget" enabled="true" />
+		<Parameter name="http://a9.com/-/opensearch/extensions/time/1.0/end" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/DateWidget" enabled="true" />
+		<Parameter name="http://localhost:8888/twc-publications/s2s.ttl#Authors" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="true" />
+		<Parameter name="http://localhost:8888/twc-publications/s2s.ttl#Events" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="true" />
+		<Parameter name="http://localhost:8888/twc-publications/s2s.ttl#Themes" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="true" />
+		<Parameter name="http://localhost:8888/twc-publications/s2s.ttl#Projects" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/3/0/FacetedSelect" enabled="true" />
+		
+		<!-- These parameters are "ignored" so they don't show up in the facets -->
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/count" ignore="true" />
+		<Parameter name="http://a9.com/-/spec/opensearch/1.1/startIndex" ignore="true" />
+	</Parameters>
+	<Results>
+	        <!-- This identifies the result query (from the OpenSearch) to use, along with the default widget -->
+		<ResultQuery name="http://localhost:8888/twc-publications/s2s.ttl#SparqlDescribeQuery" widget="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/HtmlWidget" enabled="true" />
+	</Results>
+</DefaultConfiguration>

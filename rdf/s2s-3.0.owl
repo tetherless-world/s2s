@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY s2s "http://escience.rpi.edu/ontology/sesf/s2s/3/0/" >
+]>
+
+
+<rdf:RDF xmlns="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+     xml:base="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/3/0/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <dc:date rdf:datatype="&xsd;dateTime"
+            >2012-03-01T12:00:00Z</dc:date>
+        <owl:versionInfo rdf:datatype="&xsd;string">3.0</owl:versionInfo>
+        <dc:creator rdf:datatype="&xsd;string">Eric Rozell</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >This ontology provides a vocabulary used by the S2S framework.  The S2S framework is a sub-project of the NSF-funded Semantic eScience Framework project, focused on automating the construction of search interfaces to Semantic Web Services.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/forDataStream -->
+
+    <owl:ObjectProperty rdf:about="forDataStream">
+        <rdfs:range rdf:resource="DataStreamService"/>
+        <rdfs:domain rdf:resource="DataStreamWidget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/forParameter -->
+
+    <owl:ObjectProperty rdf:about="forParameter">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates an s2s:ParameterQueryInterface with a s2s:Parameter it is used for.</rdfs:comment>
+        <rdfs:range rdf:resource="Parameter"/>
+        <rdfs:domain rdf:resource="ParameterQueryInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/hasOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="hasOutputFormat">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates a s2s:QueryInterface with the s2s:OutputFormat it returns.</rdfs:comment>
+        <rdfs:range rdf:resource="OutputFormat"/>
+        <rdfs:domain rdf:resource="QueryInterface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/implements -->
+
+    <owl:ObjectProperty rdf:about="implements">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates a s2s:SearchService with an s2s:QueryInterface it implements.</rdfs:comment>
+        <rdfs:range rdf:resource="QueryInterface"/>
+        <rdfs:domain rdf:resource="SearchService"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/supportsOutputFormat -->
+
+    <owl:ObjectProperty rdf:about="supportsOutputFormat">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates a s2s:Widget with an s2s:OutputFormat it supports.</rdfs:comment>
+        <rdfs:range rdf:resource="OutputFormat"/>
+        <rdfs:domain rdf:resource="Widget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/supportsParadigm -->
+
+    <owl:ObjectProperty rdf:about="supportsParadigm">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates a s2s:Widget or s2s:Service with the paradigm it supports.</rdfs:comment>
+        <rdfs:range rdf:resource="Paradigm"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/supportsParameter -->
+
+    <owl:ObjectProperty rdf:about="supportsParameter">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A property that associates an s2s:ParameterWidget with s2s:Parameter instances it can be used with.</rdfs:comment>
+        <rdfs:range rdf:resource="Parameter"/>
+        <rdfs:domain rdf:resource="ParameterWidget"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/DataStreamService -->
+
+    <owl:Class rdf:about="DataStreamService">
+        <rdfs:subClassOf rdf:resource="Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/DataStreamWidget -->
+
+    <owl:Class rdf:about="DataStreamWidget">
+        <rdfs:subClassOf rdf:resource="Widget"/>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/GenericParameterWidget -->
+
+    <owl:Class rdf:about="GenericParameterWidget">
+        <rdfs:subClassOf rdf:resource="ParameterWidget"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component that can support any s2s:Parameter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/OutputFormat -->
+
+    <owl:Class rdf:about="OutputFormat">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for specifying message formats (schemas).  This class is used to align s2s:QueryInterface instances with the s2s:Widget instances that support them.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/Paradigm -->
+
+    <owl:Class rdf:about="Paradigm">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for describing user interface paradigms, including faceted search and workflows.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/Parameter -->
+
+    <owl:Class rdf:about="Parameter">
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for inputs to a s2s:SearchService.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/ParameterQueryInterface -->
+
+    <owl:Class rdf:about="ParameterQueryInterface">
+        <rdfs:subClassOf rdf:resource="QueryInterface"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A s2s:QueryInterface used to retrieve options that can be used to constrain a s2s:Parameter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/ParameterWidget -->
+
+    <owl:Class rdf:about="ParameterWidget">
+        <rdfs:subClassOf rdf:resource="Widget"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component that is used to support a s2s:Parameter.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/QueryInterface -->
+
+    <owl:Class rdf:about="QueryInterface">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="hasOutputFormat"/>
+                <owl:onClass rdf:resource="OutputFormat"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for interfaces implemented by a s2s:SearchService.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/ResultQueryInterface -->
+
+    <owl:Class rdf:about="ResultQueryInterface">
+        <rdfs:subClassOf rdf:resource="QueryInterface"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An s2s:QueryInterface used to provide results for a s2s:SearchService.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/ResultWidget -->
+
+    <owl:Class rdf:about="ResultWidget">
+        <rdfs:subClassOf rdf:resource="Widget"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component used to display the output of a call to a s2s:ResultQueryInterface.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/SearchParadigm -->
+
+    <owl:Class rdf:about="SearchParadigm">
+        <rdfs:subClassOf rdf:resource="Paradigm"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for describing search paradigms such as faceted search or hierarchical search.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/SearchService -->
+
+    <owl:Class rdf:about="SearchService">
+        <rdfs:subClassOf rdf:resource="Service"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for describing Web services for search.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/SearchWidget -->
+
+    <owl:Class rdf:about="SearchWidget">
+        <rdfs:subClassOf rdf:resource="ParameterWidget"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component to facilitate s2s:Parameter constrain by the user, potentially using the results of a call to a s2s:ParameterQueryInterface.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/Service -->
+
+    <owl:Class rdf:about="Service">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A class for describing Web services.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/StaticParameterWidget -->
+
+    <owl:Class rdf:about="StaticParameterWidget">
+        <rdfs:subClassOf rdf:resource="ParameterWidget"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component that does not expect a query response from a s2s:SearchService.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://escience.rpi.edu/ontology/sesf/s2s/3/0/Widget -->
+
+    <owl:Class rdf:about="Widget">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A user interface component for a S2S user interface.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

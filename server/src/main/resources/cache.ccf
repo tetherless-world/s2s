@@ -1,0 +1,38 @@
+# DEFAULT CACHE REGION
+
+# sets the default aux value for any non configured caches
+jcs.default=DC
+jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.default.cacheattributes.MaxObjects=1000
+jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+jcs.default.elementattributes.IsEternal=false
+jcs.default.elementattributes.MaxLifeSeconds=3600
+jcs.default.elementattributes.IdleTime=1800
+jcs.default.elementattributes.IsSpool=true
+jcs.default.elementattributes.IsRemote=true
+jcs.default.elementattributes.IsLateral=true
+
+# CACHE REGIONS AVAILABLE
+
+# Regions preconfigured for caching
+jcs.region.s2sCache=DC
+jcs.region.s2sCache.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.region.s2sCache.cacheattributes.MaxObjects=1000
+jcs.region.s2sCache.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+jcs.region.s2sCache.elementattributes.IsEternal=true
+jcs.region.s2sCache.elementattributes.MaxLifeSeconds=43200
+jcs.region.s2sCache.elementattributes.IdleTime=1800
+jcs.region.s2sCache.elementattributes.IsSpool=true
+jcs.region.s2sCache.elementattributes.IsRemote=true
+jcs.region.s2sCache.elementattributes.IsLateral=true
+
+# AUXILIARY CACHES AVAILABLE
+
+# Primary Disk Cache -- faster than the rest because of memory key storage
+#jcs.auxiliary.DC=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheFactory
+#jcs.auxiliary.DC.attributes=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheAttributes
+#jcs.auxiliary.DC.attributes.DiskPath=/project/s2s/cache
+#jcs.auxiliary.DC.attributes.MaxPurgatorySize=10000
+#jcs.auxiliary.DC.attributes.MaxKeySize=10000
+#jcs.auxiliary.DC.attributes.OptimizeAtRemoveCount=30000
+#jcs.auxiliary.DC.attributes.MaxRecycleBinSize=7500

@@ -1,0 +1,106 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://escience.rpi.edu/ontology/sesf/s2s/4/0/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl2xml: <http://www.w3.org/2006/12/owl2-xml#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://escience.rpi.edu/ontology/sesf/s2s/4/0/>
+    dc:creator "Eric Rozell"^^xsd:string ;
+    dc:date "2012-03-01T12:00:00Z"^^xsd:dateTime ;
+    a owl:Ontology ;
+    rdfs:comment "This ontology provides a vocabulary used by the S2S framework.  The S2S framework is a sub-project of the NSF-funded Semantic eScience Framework project, focused on automating the construction of search interfaces to Semantic Web Services.  The ontology includes constructs for defining Semantic Web services and relating them to semantically-described user interface components."^^xsd:string ;
+    owl:versionInfo "3.0"^^xsd:string .
+
+:Input
+    a owl:Class ;
+    rdfs:comment "A class for Web service inputs to a s2s:Service."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:InputValuesInterface
+    a owl:Class ;
+    rdfs:comment "A subclass of s2s:Interface used to retrieve values that can be used to constrain a s2s:Input."^^xsd:string ;
+    rdfs:subClassOf :Interface .
+
+:InputWidget
+    a owl:Class ;
+    rdfs:comment "A user interface component to facilitate s2s:Input constraints by the user, potentially using the results of a call to a s2s:InputValuesInterface."^^xsd:string ;
+    rdfs:subClassOf :Widget .
+
+:Interface
+    a owl:Class ;
+    rdfs:comment "A class for interfaces/operations implemented by a s2s:SearchService."^^xsd:string ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onClass :Output ;
+        owl:onProperty :hasOutput ;
+        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+:Output
+    a owl:Class ;
+    rdfs:comment "A class for identifying Web service response formats.  This class is used to align s2s:Interface instances with the s2s:Widget instances that support them.  In the future, more semantics should be added to s2s:Output to allow for more flexible alignment of s2s:Widgets with s2s:Interfaces."^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:Paradigm
+    a owl:Class ;
+    rdfs:comment "A class for describing search paradigms such as faceted search or hierarchical search."^^xsd:string .
+
+:ResultsWidget
+    a owl:Class ;
+    rdfs:comment "A user interface component used to display the output of a call to a s2s:SearchResultsInterface."^^xsd:string ;
+    rdfs:subClassOf :Widget .
+
+:SearchResultsInterface
+    a owl:Class ;
+    rdfs:comment "A subclas of s2s:Interface used to provide results for a s2s:SearchService.  In other words, the results of a call to this interface provide no information on how to call other interfaces for the same service (unlike s2s:InputValuesInterface)."^^xsd:string ;
+    rdfs:subClassOf :Interface .
+
+:SearchService
+    a owl:Class ;
+    rdfs:comment "A class for describing Web services for search."^^xsd:string ;
+    rdfs:subClassOf :Service .
+
+:Service
+    a owl:Class ;
+    rdfs:comment "A class for describing Web services."^^xsd:string .
+
+:Widget
+    a owl:Class ;
+    rdfs:comment "A semantic description of a user interface component in S2S, including s2s:Outputs (Web service responses) supported."^^xsd:string .
+
+:forInput
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates s2s:InputValuesInterface instances with the s2s:Input instances they can be used for."^^xsd:string ;
+    rdfs:domain :InputValuesInterface ;
+    rdfs:range :Input .
+
+:hasOutput
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates a s2s:Interface with the s2s:Output it returns."^^xsd:string ;
+    rdfs:domain :Interface ;
+    rdfs:range :Output .
+
+:implements
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates a s2s:Service with an s2s:Interface it implements."^^xsd:string ;
+    rdfs:domain :Service ;
+    rdfs:range :Interface .
+
+:supportsInput
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates an s2s:InputWidget with s2s:Input instances it can be used with."^^xsd:string ;
+    rdfs:domain :InputWidget ;
+    rdfs:range :Input .
+
+:supportsOutput
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates a s2s:Widget with an s2s:Output it supports."^^xsd:string ;
+    rdfs:domain :Widget ;
+    rdfs:range :Output .
+
+:supportsParadigm
+    a owl:ObjectProperty ;
+    rdfs:comment "A property that associates a s2s:Widget or s2s:Service with the paradigm it supports."^^xsd:string ;
+    rdfs:range :Paradigm .
