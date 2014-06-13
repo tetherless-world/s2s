@@ -33,12 +33,12 @@ public class WidgetFromSparql extends Widget {
 	public WidgetFromSparql(String uri, QueryableSource source) throws UnregisteredInstanceException {
 		_uri = uri;
 		_source = source;
-		_scripts = new Vector<String>();
-		_css = new Vector<String>();
-		_outputs = new Vector<String>();
-		_inputs = new Vector<String>();
-		_paradigms = new Vector<String>();
-		_types = new Vector<String>();
+		_scripts = new Vector<>();
+		_css = new Vector<>();
+		_outputs = new Vector<>();
+		_inputs = new Vector<>();
+		_paradigms = new Vector<>();
+		_types = new Vector<>();
 		_query();
 	}
 	
@@ -184,7 +184,7 @@ public class WidgetFromSparql extends Widget {
 		if (!QueryableSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("SparqlWidget requires QueryableSource.");
 		}
-		_source = (QueryableSource)_source;
+		_source = (QueryableSource) source;
 		_query();
 	}
 }

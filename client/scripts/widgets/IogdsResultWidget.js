@@ -29,12 +29,12 @@ edu.rpi.tw.sesf.s2s.widgets.IogdsResultWidget = function(panel) {
 
 edu.rpi.tw.sesf.s2s.widgets.IogdsResultWidget.prototype.updateState = function()
 {
-	this.state = {"limit":this.limit,"offset",this.offset};
+	this.state = {"limit":this.limit,"offset":this.offset};
 }
 
 edu.rpi.tw.sesf.s2s.widgets.IogdsResultWidget.prototype.setState = function(state)
 {
-	this.state = {"limit":this.limit,"offset",this.offset};
+	this.state = {"limit":this.limit,"offset":this.offset};
 	this.panel.notify(true, true, true);
 }
 

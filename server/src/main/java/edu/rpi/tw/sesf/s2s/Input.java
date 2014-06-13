@@ -34,7 +34,6 @@ public abstract class Input implements InstanceData {
 		if (getDelimiter() != null) map.put("delimiter", getDelimiter());
 		map.put("cached", isFromCache());
 		if (this.getDataSource().getId() != null) map.put("datasource", this.getDataSource().getId());
-		JSONObject json = new JSONObject(map);
-		return json;
+        return new JSONObject(map);
 	}
 }

@@ -14,7 +14,7 @@ if (edu.rpi.tw.sesf.s2s.widgets == undefined || typeof(edu.rpi.tw.sesf.s2s.widge
 edu.rpi.tw.sesf.s2s.widgets.DateWidget = function(panel) {
 	this.panel = panel;
 	var input = panel.getInput();
-	var input = jQuery("<input type=\"text\"></input>");
+	var input = jQuery("<input type=\"text\"/>");
 	jQuery(input).datepicker({ dateFormat: 'yy-mm-dd' });
 	this.div =  jQuery("<div class=\"facet-content\"></div>");
 	panel.setInputData(input.getId(), function() {

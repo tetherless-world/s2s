@@ -35,12 +35,12 @@ public class WidgetFromRipple extends Widget {
 	public WidgetFromRipple(String uri, RippleSource source) throws RippleException, InvalidLinkedDataIdentifierException {
 		_uri = uri;
 		_source = source;
-		_scripts = new Vector<String>();
-		_css = new Vector<String>();
-		_outputs = new Vector<String>();
-		_inputs = new Vector<String>();
-		_paradigms = new Vector<String>();
-		_types = new Vector<String>();
+		_scripts = new Vector<>();
+		_css = new Vector<>();
+		_outputs = new Vector<>();
+		_inputs = new Vector<>();
+		_paradigms = new Vector<>();
+		_types = new Vector<>();
 		_crawl();
 	}
 
@@ -96,7 +96,7 @@ public class WidgetFromRipple extends Widget {
 
 	private void _crawl() throws RippleException, InvalidLinkedDataIdentifierException {
 	    
-	    Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+	    Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(_source.getQueryEngine(), c);
 	    
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
@@ -183,6 +183,6 @@ public class WidgetFromRipple extends Widget {
 		if (!RippleSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("LinkedDataWidget requires RippleSource.");
 		}
-		_source = (RippleSource)_source;
+		_source = (RippleSource) source;
 	}
 }

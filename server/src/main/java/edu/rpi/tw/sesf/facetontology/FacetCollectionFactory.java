@@ -74,7 +74,7 @@ public class FacetCollectionFactory {
 		
 		if (QueryableSource.class.isAssignableFrom(source.getClass())) {
 			try {
-				facets = new FacetCollectionImpl(uri, (QueryableSource) source);
+				facets = new FacetCollectionImpl(uri, source);
 			} catch (UnregisteredInstanceException e) {
 				String message = "SearchService URI not found in source: " + source.toString();
 				log.trace(message, e);

@@ -84,7 +84,7 @@ public class InputFromSparql extends Input {
 		if (!QueryableSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("SparqlInput requires QueryableSource.");
 		}
-		_source = (QueryableSource)_source;
+		_source = (QueryableSource) source;
 		_query();
 	}
 

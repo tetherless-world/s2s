@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
-					   xmlns:s2s="http://escience.rpi.edu/ontology/sesf/s2s/2/0/"
-					   xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
-					   xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
-					   xmlns:twcs2s="http://localhost:8888/twc-publications/s2s.ttl#"
-					   xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/2/0/">
+                       xmlns:twcs2s="http://localhost:8888/twc-publications/s2s.ttl#"
+        >
   <ShortName>TWC Publications Search</ShortName>
-  <Description></Description>
-  <Tags></Tags>
+  <Description/>
+  <Tags/>
   <Contact>Eric Rozell</Contact>
   <Url type="application/json" rel="twcs2s:AuthorsQuery" template="http://localhost:8888/twc-publications/search.php?request=authors&amp;q={searchTerms}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;projects={tw:Projects?}&amp;events={tw:Events?}&amp;themes={tw:Themes?}" />
   <Url type="application/json" rel="twcs2s:EventsQuery" template="http://localhost:8888/twc-publications/search.php?request=events&amp;q={searchTerms}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;authors={tw:Authors?}&amp;projects={tw:Projects?}&amp;themes={tw:Themes?}" />
@@ -15,9 +12,9 @@
   <Url type="application/json" rel="twcs2s:ThemesQuery" template="http://localhost:8888/twc-publications/search.php?request=themes&amp;q={searchTerms}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;authors={tw:Authors?}&amp;projects={tw:Projects?}&amp;events={tw:Events?}" />
   <Url type="text/html" rel="twcs2s:SparqlDescribeQuery" template="http://leo.tw.rpi.edu/projects/webdeb/search.php?request=publications&amp;q={searchTerms}&amp;startDate={time:start?}&amp;endDate={time:end?}&amp;authors={tw:Authors?}&amp;projects={tw:Projects?}&amp;events={tw:Events?}&amp;themes={tw:Themes?}&amp;limit={count}&amp;offset={startIndex}" />
   <LongName>TWC Publications Search Service</LongName>
-  <Query role="example"></Query>
+  <Query role="example"/>
   <Developer>Eric Rozell</Developer>
-  <Attribution></Attribution>
+  <Attribution/>
   <SyndicationRight>open</SyndicationRight>
   <AdultContent>false</AdultContent>
   <Language>en-us</Language>

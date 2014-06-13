@@ -33,8 +33,8 @@ public class DataSourceFactoryTest extends TestCase {
 	 */
 	public DataSourceFactoryTest(String name) {
 		super(name);
-		Vector<DataSource> source1 = new Vector<DataSource>();
-		Vector<DataSource> source2 = new Vector<DataSource>();
+		Vector<DataSource> source1 = new Vector<>();
+		Vector<DataSource> source2 = new Vector<>();
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		m.read(TEST_FILE_DATASOURCE_URI);
 		source1.add(new JenaPelletSource("test",m));
@@ -44,21 +44,7 @@ public class DataSourceFactoryTest extends TestCase {
 		_cachedFactory = new DataSourceFactory(source1, true);
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#tearDown()
-	 */
-	protected void tearDown() throws Exception {
-		super.tearDown();
-	}
-	
-	public void testCreateSourcesFromJena() {
+    public void testCreateSourcesFromJena() {
 		DataSource source = _jenaFactory.createDataSource(TEST_FILE_DATASOURCE_URI);
 		assertTrue(QueryableSource.class.isAssignableFrom(source.getClass()));
 		assertTrue(((QueryableSource)source).getLocation().equals(TEST_FILE_DATASOURCE_LOCATION));
@@ -78,7 +64,6 @@ public class DataSourceFactoryTest extends TestCase {
 
 	public void testCreateCollectionFromCache() {
 		DataSource source = _cachedFactory.createDataSource(TEST_FILE_DATASOURCE_URI);
-		source = _cachedFactory.createDataSource(TEST_FILE_DATASOURCE_URI);
 		assertTrue(QueryableSource.class.isAssignableFrom(source.getClass()));
 		assertTrue(((QueryableSource)source).getLocation().equals(TEST_FILE_DATASOURCE_LOCATION));
 	}

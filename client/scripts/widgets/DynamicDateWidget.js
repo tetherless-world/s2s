@@ -15,7 +15,7 @@ edu.rpi.tw.sesf.s2s.widgets.DynamicDateWidget = function(panel) {
 	this.panel = panel;
 	this.availableDates = {};
     var input = panel.getInput();
-    var input = jQuery("<input type=\"text\"></input>");
+    var input = jQuery("<input type=\"text\"/>");
     this.div =  jQuery("<div class=\"facet-content\"></div>");
     jQuery(input).datepicker({ dateFormat: 'yy-mm-dd', beforeShowDay: this.checkAvailableDays });
     jQuery(input).datepicker("option", "changeMonth", true);

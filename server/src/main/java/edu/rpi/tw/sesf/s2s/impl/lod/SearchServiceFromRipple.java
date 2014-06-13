@@ -31,8 +31,8 @@ public class SearchServiceFromRipple extends SearchService {
 	public SearchServiceFromRipple(String uri, RippleSource source) throws RippleException, InvalidLinkedDataIdentifierException {
 		_uri = uri;
 		_source = source;
-		_links = new Vector<String>();
-		_types = new Vector<String>();
+		_links = new Vector<>();
+		_types = new Vector<>();
 		_crawl();
 	}
 	
@@ -68,7 +68,7 @@ public class SearchServiceFromRipple extends SearchService {
 	
 	private void _crawl() throws RippleException, InvalidLinkedDataIdentifierException {
 
-	    Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+	    Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(_source.getQueryEngine(), c);
 	    
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
@@ -125,7 +125,7 @@ public class SearchServiceFromRipple extends SearchService {
 		if (!RippleSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("LinkedDataSearchService requires RippleSource.");
 		}
-		_source = (RippleSource)_source;
+		_source = (RippleSource) source;
 	}
 	
 	

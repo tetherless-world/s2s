@@ -36,7 +36,7 @@ public class FacetCollectionImpl extends FacetCollection {
 		_uri = uri;
 		_source = source;
 		_fromCache = false;
-		_connectedFacets = new Vector<ConnectedFacet>();
+		_connectedFacets = new Vector<>();
 		if (QueryableSource.class.isAssignableFrom(source.getClass())) {
 			query();
 		} else if (RippleSource.class.isAssignableFrom(source.getClass())) {
@@ -105,7 +105,7 @@ public class FacetCollectionImpl extends FacetCollection {
 	private void crawl() throws RippleException, UnregisteredInstanceException {
 		RippleSource source = (RippleSource)_source;
 		
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

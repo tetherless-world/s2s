@@ -69,7 +69,7 @@ public class OpenSearchServiceEngineTest extends TestCase {
 	}
 	
 	public void testRunQuery() {
-		Map<String,String> params = new HashMap<String,String>();
+		Map<String,String> params = new HashMap<>();
 		params.put(TEST_SERVICE_PARAMETER, TEST_SERVICE_PARAMETER_VALUE);
 		
 		MockHttpServletResponse response = new MockHttpServletResponse();

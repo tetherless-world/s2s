@@ -78,14 +78,12 @@ public class MetadataServlet extends HttpServlet {
 			log.warn("Could not open S2S properties file");
 		}
 		_sources = Utils.getDataSources(s2sConfig,config.getInitParameter("s2s-sources-property"));
-		//boolean caching = (s2sConfig != null) ? s2sConfig.getBoolean(config.getInitParameter("s2s-caching-property"),false) : false;
-		boolean caching = true;
-		
+
 		//initialize factories
-		_searchServiceFactory = new SearchServiceFactory(_sources, caching);
-		_widgetFactory = new WidgetFactory(_sources, caching);
-		_interfaceFactory = new InterfaceFactory(_sources, caching);
-		_inputFactory = new InputFactory(_sources, caching);
+		_searchServiceFactory = new SearchServiceFactory(_sources, true);
+		_widgetFactory = new WidgetFactory(_sources, true);
+		_interfaceFactory = new InterfaceFactory(_sources, true);
+		_inputFactory = new InputFactory(_sources, true);
 		
 		//initialize log4j
 		String log4jLocation = config.getInitParameter("log4j-properties-location");
@@ -166,10 +164,10 @@ public class MetadataServlet extends HttpServlet {
     	String[] instances = request.getParameterValues("instance");
 		
     	//TODO: use the cacheOverride
-		boolean cacheOverride = !Utils.isNoCacheRequest(request);
+
+		boolean cacheOverride = Utils.isCacheRequest(request);
 		Collection<DataSource> useSources = _sources;
     	if (!cacheOverride) {
-    		useSources = new Vector<DataSource>();
     		for (DataSource source : _sources) {
     			if (RippleSource.class.isAssignableFrom(source.getClass())) {
     				useSources.add(new RippleSource("lod",RippleQueryEngineSingleton.getNewInstance()));
@@ -289,7 +287,7 @@ public class MetadataServlet extends HttpServlet {
     private void getWidgets(HttpServletRequest request, HttpServletResponse response) 
     	throws UrlParameterException {
     	
-    	boolean cacheOverride = !Utils.isNoCacheRequest(request);
+    	boolean cacheOverride = Utils.isCacheRequest(request);
     	
     	String[] instances = request.getParameterValues("instance");
     	String klass = request.getParameter("class");
@@ -332,7 +330,7 @@ public class MetadataServlet extends HttpServlet {
 	private void getInputs(HttpServletRequest request, HttpServletResponse response)
     	throws UrlParameterException {
     	
-    	boolean cacheOverride = !Utils.isNoCacheRequest(request);
+    	boolean cacheOverride = Utils.isCacheRequest(request);
 		
     	String[] instances = request.getParameterValues("instance");
     	String serviceUri = request.getParameter("service");
@@ -341,7 +339,7 @@ public class MetadataServlet extends HttpServlet {
     		throw new UrlParameterException("At least one \"instance\" parameter or exactly one \"service\" parameter should be included.");
     	}
     	
-    	if ((instances == null || instances.length == 0) && serviceUri != null) {
+    	if ((instances == null || instances.length == 0)) {
     		SearchService service = _searchServiceFactory.createSearchService(serviceUri, cacheOverride);
     		if (service == null) {
     			throw new UrlParameterException(422, "The \"service\" URI (" + serviceUri + ") could not be instantiated.");
@@ -375,24 +373,26 @@ public class MetadataServlet extends HttpServlet {
     private void getInterfaces(HttpServletRequest request, HttpServletResponse response) 
     	throws UrlParameterException {
     	
-		boolean cacheOverride = !Utils.isNoCacheRequest(request);
+		boolean cacheOverride = Utils.isCacheRequest(request);
     	
     	String[] instances = request.getParameterValues("instance");
     	String serviceUri = request.getParameter("service");
-    	
-    	if ((instances == null || instances.length == 0) && serviceUri == null) {
-    		throw new UrlParameterException("At least one \"instance\" parameter or exactly one \"service\" parameter should be included.");
-    	}
-    	
-    	if ((instances == null || instances.length == 0) && serviceUri != null) {
-    		SearchService service = _searchServiceFactory.createSearchService(serviceUri, cacheOverride);
-    		if (service == null) {
-    			throw new UrlParameterException(422, "The \"service\" URI (" + serviceUri + ") could not be instantiated.");
-    		}
-    		Collection<String> interfaces = service.getWebServiceEngine().getInterfaces();
-    		instances = new String[interfaces.size()];
-    		interfaces.toArray(instances);
-    	}
+
+        if(instances == null || instances.length == 0) {
+
+            if(serviceUri == null) {
+                throw new UrlParameterException("At least one \"instance\" parameter or exactly one \"service\" parameter should be included.");
+            }
+
+            SearchService service = _searchServiceFactory.createSearchService(serviceUri, cacheOverride);
+            if (service == null) {
+                throw new UrlParameterException(422, "The \"service\" URI (" + serviceUri + ") could not be instantiated.");
+            }
+
+            Collection<String> interfaces = service.getWebServiceEngine().getInterfaces();
+            instances = new String[interfaces.size()];
+            interfaces.toArray(instances);
+        }
     	
     	JSONObject returnObj = new JSONObject();
     	for (String uri : instances) {
@@ -418,7 +418,7 @@ public class MetadataServlet extends HttpServlet {
     private void getDefaults(HttpServletRequest request, HttpServletResponse response) 
     	throws UrlParameterException {
     	
-		boolean cacheOverride = !Utils.isNoCacheRequest(request);
+		boolean cacheOverride = Utils.isCacheRequest(request);
     	
     	String uri = request.getParameter("service");
     	if (uri == null) {
@@ -438,7 +438,7 @@ public class MetadataServlet extends HttpServlet {
     }
     
     private String[] _getWidgetsFromInputs(String klass, String parameter, String output) {
-		Set<String> widgets = new HashSet<String>();
+		Set<String> widgets = new HashSet<>();
     	for (DataSource source : _sources) {
     		if (QueryableSource.class.isAssignableFrom(source.getClass())) {
     			ResultSet rs = ((QueryableSource)source).sparqlSelect(Queries.widgetsFromInputs(klass, parameter, output, null, ((QueryableSource)source)));

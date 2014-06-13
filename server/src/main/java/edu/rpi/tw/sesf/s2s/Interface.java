@@ -42,7 +42,6 @@ public abstract class Interface implements InstanceData {
 		if (getInput() != null) map.put("input", getInput());
 		if (this.getDataSource().getId() != null) map.put("datasource", this.getDataSource().getId());
 		map.put("cached", isFromCache());
-		JSONObject json = new JSONObject(map);
-		return json;
+        return new JSONObject(map);
 	}
 }

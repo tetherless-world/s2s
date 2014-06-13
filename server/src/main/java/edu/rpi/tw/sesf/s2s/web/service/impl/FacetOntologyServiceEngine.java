@@ -1,11 +1,7 @@
 package edu.rpi.tw.sesf.s2s.web.service.impl;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -71,7 +67,7 @@ public class FacetOntologyServiceEngine implements WebServiceEngine {
 	}
 	
 	public Collection<String> getInputs() {
-		Vector<String> ret = new Vector<String>();
+		Vector<String> ret = new Vector<>();
 		for (ConnectedFacet f : _fc.getConnectedFacets()) {
 			ret.add(f.getURI());
 		}
@@ -87,13 +83,13 @@ public class FacetOntologyServiceEngine implements WebServiceEngine {
 	public void runQuery(String query, Map<String, String> parameters,
 			HttpServletResponse response) throws IOException {
 		// TODO Auto-generated method stub
-		Map<String,Collection<String>> fcInputs = new HashMap<String,Collection<String>>();
+		Map<String,Collection<String>> fcInputs = new HashMap<>();
 		if (parameters != null) {
 			for (String key : parameters.keySet()) {
-				Vector<String> vals = new Vector<String>();
+				Vector<String> vals = new Vector<>();
 				if (!parameters.get(key).equals("")) {
 					String[] valArr = parameters.get(key).split(Configuration.facetInputDelimiter);
-					for (int i = 0; i < valArr.length; ++i) vals.add(valArr[i]);
+                    Collections.addAll(vals, valArr);
 					fcInputs.put(key, vals);
 				}
 			}
@@ -121,7 +117,7 @@ public class FacetOntologyServiceEngine implements WebServiceEngine {
 	private void _crawl() throws RippleException {
 		RippleSource source = (RippleSource)_service.getDataSource();
 				
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _service.getURI() + ">";

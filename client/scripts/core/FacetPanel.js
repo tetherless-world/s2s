@@ -78,8 +78,7 @@
 		//get index to update
 		if (this.paradigm == s2s.utils.hierarchicalSearch && caller != null && typeof caller == "object")
 		{
-		    var widgetPanel = caller;
-		    var input = widgetPanel.getInput().getId();
+            var input = caller.getInput().getId();
 		    for (var i = 0; i < this.config.enabled.length; ++i)
 		    {
 				if (this.config.enabled[i] > index)

@@ -89,34 +89,25 @@ public class SessionServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
-		try {
-			
-			BufferedReader reader = request.getReader();
-			StringWriter sw = new StringWriter();
-			char[] buffer = new char[65536];
-			int n;
-			while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
-			
-			String key = Integer.toString(sw.toString().hashCode());
-			key = key.replace('-', 'n');
-			
-			File f;
-			if (_directory != null && _directory != "") f = new File(_directory + "/" + key);
-			else f = new File(key);
-			f.createNewFile();
-			if (!f.canWrite()) {
-				throw new UrlParameterException(422, "Cannot create session file for \"key\" = " + key);
-			}
-			
-			BufferedWriter fw = new BufferedWriter(new FileWriter(f));
-			fw.write(sw.toString());
-			fw.flush();
-			
-			Writer rw = response.getWriter();
-			rw.write(key);
-		} catch (UrlParameterException e) {
-    		log.error(e.getMessage(), e);
-    		response.sendError(e.getErrorCode(), e.getMessage());
-    	}
-	}
+
+        BufferedReader reader = request.getReader();
+        StringWriter sw = new StringWriter();
+        char[] buffer = new char[65536];
+        int n;
+        while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
+
+        String key = Integer.toString(sw.toString().hashCode());
+        key = key.replace('-', 'n');
+
+        File f;
+        if (_directory != null && !_directory.equals("")) f = new File(_directory + "/" + key);
+        else f = new File(key);
+
+        BufferedWriter fw = new BufferedWriter(new FileWriter(f));
+        fw.write(sw.toString());
+        fw.flush();
+
+        Writer rw = response.getWriter();
+        rw.write(key);
+    }
 }

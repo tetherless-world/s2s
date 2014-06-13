@@ -35,7 +35,6 @@ import com.hp.hpl.jena.query.ResultSet;
 import edu.rpi.tw.sesf.s2s.SearchService;
 import edu.rpi.tw.sesf.s2s.data.QueryableSource;
 import edu.rpi.tw.sesf.s2s.data.RippleSource;
-import edu.rpi.tw.sesf.s2s.exception.IncompatibleDataSourceException;
 import edu.rpi.tw.sesf.s2s.exception.InvalidLinkedDataIdentifierException;
 import edu.rpi.tw.sesf.s2s.exception.MalformedInstanceException;
 import edu.rpi.tw.sesf.s2s.exception.UnregisteredInstanceException;
@@ -55,10 +54,10 @@ public class OpenSearchServiceEngine implements WebServiceEngine {
 	private Map<String, QueryTemplate> _interfaces;
 	private Set<String> _inputs;
 	
-	public OpenSearchServiceEngine(SearchService service) throws IncompatibleDataSourceException, UnregisteredInstanceException, SailException, RippleException, InvalidLinkedDataIdentifierException, MalformedInstanceException {
+	public OpenSearchServiceEngine(SearchService service) throws UnregisteredInstanceException, SailException, RippleException, InvalidLinkedDataIdentifierException, MalformedInstanceException {
 		_service = service;
-		_interfaces = new HashMap<String, QueryTemplate>();
-		_inputs = new HashSet<String>();
+		_interfaces = new HashMap<>();
+		_inputs = new HashSet<>();
 		if (QueryableSource.class.isAssignableFrom(service.getDataSource().getClass())) {
 			_query();
 		} else if (RippleSource.class.isAssignableFrom(service.getDataSource().getClass())) {
@@ -101,9 +100,9 @@ public class OpenSearchServiceEngine implements WebServiceEngine {
 		}
 	}
 	
-	private void _crawl() throws SailException, RippleException, InvalidLinkedDataIdentifierException {
+	private void _crawl() throws RippleException, InvalidLinkedDataIdentifierException {
 
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(((RippleSource)_service.getDataSource()).getQueryEngine(), c);
 	    
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
@@ -128,7 +127,7 @@ public class OpenSearchServiceEngine implements WebServiceEngine {
 			Document<Element> doc = p.parse(url.openStream());
 			Element root = doc.getRoot();
 			for (Element el : root.getElements()) {
-				Url u = null;
+				Url u;
 				if (el.getQName().equals(OpenSearchConstants.URL)) {
 					u = new Url(el);
 					//TODO: request bug fix for "os:rel" attribute
@@ -152,7 +151,7 @@ public class OpenSearchServiceEngine implements WebServiceEngine {
 		
 		public QueryTemplate(Url u) {
 			_u = u;
-			_params = new HashMap<String,TemplateParameter>();
+			_params = new HashMap<>();
 			_getTemplate();
 			_parse();
 		}

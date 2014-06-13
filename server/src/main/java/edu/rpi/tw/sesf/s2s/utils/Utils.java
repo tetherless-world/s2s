@@ -58,16 +58,16 @@ public class Utils {
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public static boolean isNoCacheRequest(HttpServletRequest request) {
+	public static boolean isCacheRequest(HttpServletRequest request) {
     	Enumeration e = request.getHeaders("Cache-Control");
     	while (e.hasMoreElements()) {
-    		if ( e.nextElement().equals("no-cache")) return true;
+    		if ( e.nextElement().equals("no-cache")) return false;
     	}
     	e = request.getHeaders("Pragma");
     	while (e.hasMoreElements()) {
-    		if ( e.nextElement().equals("no-cache")) return true;
+    		if ( e.nextElement().equals("no-cache")) return false;
     	}
-    	return false;
+    	return true;
 	}
 	
 	public static String buildQueryURL(String query, String endpoint) {
@@ -109,58 +109,62 @@ public class Utils {
 		PrintWriter writer = response.getWriter();
 		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
 		char[] bytes = new char[nBytes];
-		int readBytes = -1;
+		int readBytes;
 		while ((readBytes = br.read(bytes)) >= 0) {
 			writer.write(bytes, 0, readBytes);
 		}
     }
     
 	public static Collection<DataSource> getDataSources(org.apache.commons.configuration.Configuration config, String property) {
-    	Vector<DataSource> sources = new Vector<DataSource>();
+    	Vector<DataSource> sources = new Vector<>();
     	if (config == null) {
     		sources.add(new RippleSource("default",RippleQueryEngineSingleton.getInstance()));
     	} else {
         	String[] sourceProperties = config.getStringArray(property);
 	    	for (String sourceProp : sourceProperties) {
 	    		String[] sourceInfo = config.getStringArray(sourceProp);
-	    		if (sourceInfo[0].equals("lod")) {
-	    			sources.add(new RippleSource(sourceProp,RippleQueryEngineSingleton.getInstance()));
-	    		} else if (sourceInfo[0].equals("sparql")) {
-	    			sources.add(new SparqlSource(sourceInfo[1],(sourceInfo.length > 2) ? sourceInfo[2] : null, (sourceInfo.length > 3) ? sourceInfo[3] : null));
-	    		} else if (sourceInfo[0].equals("jena")) {
-	    			Model m = ModelFactory.createDefaultModel();
-	    			for (int i = 1; i < sourceInfo.length; i += 2) {
-	    				if (rdfLangs.contains(sourceInfo[i]) && i < (sourceInfo.length - 1)) {
-	    					if (sourceInfo[i+1].startsWith("file://")) {
-	    						try {
-	    							m.read(new FileInputStream(sourceInfo[i+1].substring(6)), null, sourceInfo[i]);
-	    						} catch (FileNotFoundException e) {
-	    							log.warn("Could not load data from file: " + sourceInfo[i+1].substring(6));
-	    						}
-	    					}
-	    					else if (sourceInfo[i+1].startsWith("http://")) {
-	    						m.read(sourceInfo[i+1],sourceInfo[i]);
-	    					}
-	    				} else {
-	    					log.warn("Invalid Jena lang: " + sourceInfo[i]);
-	    				}
-	    			}
-	    			sources.add(new JenaPelletSource(sourceProp,m));
-	    		}
+
+                switch (sourceInfo[0]) {
+                    case "lod":
+                        sources.add(new RippleSource(sourceProp, RippleQueryEngineSingleton.getInstance()));
+                        break;
+                    case "sparql":
+                        sources.add(new SparqlSource(sourceInfo[1], (sourceInfo.length > 2) ? sourceInfo[2] : null, (sourceInfo.length > 3) ? sourceInfo[3] : null));
+                        break;
+                    case "jena":
+                        Model m = ModelFactory.createDefaultModel();
+                        for (int i = 1; i < sourceInfo.length; i += 2) {
+                            if (rdfLangs.contains(sourceInfo[i]) && i < (sourceInfo.length - 1)) {
+                                if (sourceInfo[i + 1].startsWith("file://")) {
+                                    try {
+                                        m.read(new FileInputStream(sourceInfo[i + 1].substring(6)), null, sourceInfo[i]);
+                                    } catch (FileNotFoundException e) {
+                                        log.warn("Could not load data from file: " + sourceInfo[i + 1].substring(6));
+                                    }
+                                } else if (sourceInfo[i + 1].startsWith("http://")) {
+                                    m.read(sourceInfo[i + 1], sourceInfo[i]);
+                                }
+                            } else {
+                                log.warn("Invalid Jena lang: " + sourceInfo[i]);
+                            }
+                        }
+                        sources.add(new JenaPelletSource(sourceProp, m));
+                        break;
+                }
 	    	}
     	}
     	return sources;
     }
     
     public static Collection<DataSource> getDataSources(InputStream config) {
-    	Vector<DataSource> sources = new Vector<DataSource>();
+    	Vector<DataSource> sources = new Vector<>();
     	
     	if (config == null) {
 			sources.add(new RippleSource("default",RippleQueryEngineSingleton.getNewInstance()));
     	} else {
     		try {
 		    	BufferedReader br = new BufferedReader(new InputStreamReader(config));
-		    	String line = null;
+		    	String line;
 		    	while ((line = br.readLine()) != null) {
 		    		String[] parts = line.split("\t");
 		    		if (parts[0].equals("sparql")) {
@@ -199,7 +203,7 @@ public class Utils {
     	JSONArray arr = new JSONArray();
     	while (rs.hasNext()) {
     		QuerySolution qs = rs.next();
-    		Map<String,String> r = new HashMap<String,String>();
+    		Map<String,String> r = new HashMap<>();
     		for (String var : rs.getResultVars()) {
     			if (qs.contains(var) && qs.get(var).isLiteral()) {
     				r.put(var,qs.get(var).asLiteral().getValue().toString());
@@ -217,7 +221,7 @@ public class Utils {
     	arr.put(rs.getResultVars());
     	while (rs.hasNext()) {
     		QuerySolution qs = rs.next();
-    		Map<String,String> r = new HashMap<String,String>();
+    		Map<String,String> r = new HashMap<>();
     		for (String var : rs.getResultVars()) {
     			if (qs.contains(var) && qs.get(var).isLiteral()) {
     				r.put(var,qs.get(var).asLiteral().getValue().toString());
@@ -236,7 +240,7 @@ public class Utils {
     	arr.put(rs.getResultVars());
     	while (rs.hasNext()) {
     		QuerySolution qs = rs.next();
-    		Map<String,String> r = new HashMap<String,String>();
+    		Map<String,String> r = new HashMap<>();
     		for (String var : rs.getResultVars()) {
     			if (qs.contains(var) && qs.get(var).isLiteral()) {
     				r.put(var,qs.get(var).asLiteral().getValue().toString());

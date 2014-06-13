@@ -47,7 +47,6 @@ public abstract class Widget implements InstanceData {
 		if (getRequiredStylesheets() != null) map.put("css", getRequiredStylesheets().toArray());
 		if (this.getDataSource().getId() != null) map.put("datasource", this.getDataSource().getId());
 		map.put("cached", isFromCache());
-		JSONObject json = new JSONObject(map);
-		return json;
+        return new JSONObject(map);
 	}	
 }

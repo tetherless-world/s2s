@@ -40,7 +40,7 @@ public class InterfaceFromConnectedFacet extends Interface {
 
 	@Override
 	public Vector<String> getTypes() {
-		Vector<String> types = new Vector<String>();
+		Vector<String> types = new Vector<>();
 		types.add(Ontology.InputValuesInterface);
 		return types;
 	}

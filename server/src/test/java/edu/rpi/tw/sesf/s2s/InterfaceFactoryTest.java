@@ -37,8 +37,8 @@ public class InterfaceFactoryTest extends TestCase {
 	public InterfaceFactoryTest(String name) {
 		super(name);
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
-		Vector<DataSource> source1 = new Vector<DataSource>();
-		Vector<DataSource> source2 = new Vector<DataSource>();
+		Vector<DataSource> source1 = new Vector<>();
+		Vector<DataSource> source2 = new Vector<>();
 		source1.add(new RippleSource("test",qe));
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		m.read(TEST_QUERY_URI);
@@ -75,8 +75,8 @@ public class InterfaceFactoryTest extends TestCase {
 	}
 	
 	public void testCreateLinkedDataQueryInterfaceFromCache() {
+        _cachedLinkedInterfaceFactory.createInterface(TEST_QUERY_URI);
 		Interface query = _cachedLinkedInterfaceFactory.createInterface(TEST_QUERY_URI);
-		query = _cachedLinkedInterfaceFactory.createInterface(TEST_QUERY_URI);
 		assertTrue(query.isFromCache());
 		assertTrue(query.getLabel().equals(TEST_QUERY_LABEL));
 		assertTrue(query.getComment().equals(TEST_QUERY_COMMENT));

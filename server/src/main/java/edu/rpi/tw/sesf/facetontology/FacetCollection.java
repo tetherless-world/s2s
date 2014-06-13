@@ -91,7 +91,7 @@ public abstract class FacetCollection implements Serializable, InstanceData {
 	public String buildFirstOrderFacetCountQuery(Map<String, Collection<String>> inputs, SparqlType type) {
 		StringBuilder sb = new StringBuilder();
 		FirstOrderFacet f = getFirstOrderFacet();
-		String query = null;
+		String query;
 		//write header
 		sb.append(buildCountQueryHeader());
 		int vcount = 1;
@@ -132,7 +132,7 @@ public abstract class FacetCollection implements Serializable, InstanceData {
 	public String buildFirstOrderFacetQuery(Map<String, Collection<String>> inputs, SparqlType type) {
 		StringBuilder sb = new StringBuilder();
 		FirstOrderFacet f = getFirstOrderFacet();
-		String query = null;
+		String query;
 		//write header
 		sb.append(buildQueryHeader(f));
 		int vcount = 1;
@@ -180,7 +180,7 @@ public abstract class FacetCollection implements Serializable, InstanceData {
 	}
 	
 	private Collection<String> buildQueryConstraint(ConnectedFacet facet, Collection<String> values, String vbase, String vgoal, SparqlType type) {
-		Vector<String> ret = new Vector<String>();
+		Vector<String> ret = new Vector<>();
 		for (String value : values) {
 			if (facet.getFacetType().equals(FacetType.Object) && facet.getSparqlBinding() != null) {
 				ret.add(String.format("{ %s FILTER (?%s = <%s>) } ", writePredicatePathsUnion(facet.getPredicatePaths(), vbase, "?" + facet.getSparqlBinding(), vgoal, type), facet.getSparqlBinding(), value));  
@@ -238,7 +238,7 @@ public abstract class FacetCollection implements Serializable, InstanceData {
 		if (f.getSparqlGraph() != null) sb.append(String.format("GRAPH <%s> { ", f.getSparqlGraph()));
 		if (f.isOptional()) sb.append("OPTIONAL { ");
 		String vgoal = String.format("%s%s", vbase, "fval");		
-		List<Predicate> preds = new ArrayList<Predicate>(f.getFirstPredicate().getList());
+		List<Predicate> preds = new ArrayList<>(f.getFirstPredicate().getList());
 		sb.append(writePredicatePath(preds, vbase, vstart, vgoal, type));
 		sb.append(String.format(" FILTER (%s)", f.getFilterValue().replaceAll("\\{var\\}", "?" + vgoal)));
 		if (f.getSparqlGraph() != null) sb.append("} ");
@@ -247,7 +247,7 @@ public abstract class FacetCollection implements Serializable, InstanceData {
 	}
 	
 	private String writePredicatePathsUnion(Collection<Predicate> preds, String vbase, String vstart, String vgoal, SparqlType type) {
-		Vector<String> paths = new Vector<String>();
+		Vector<String> paths = new Vector<>();
 		StringBuilder union = new StringBuilder();
 		union.append("{ ");
 		for (Predicate p : preds) {

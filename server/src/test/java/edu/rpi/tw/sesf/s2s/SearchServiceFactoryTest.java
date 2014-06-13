@@ -38,8 +38,8 @@ public class SearchServiceFactoryTest extends TestCase {
 	public SearchServiceFactoryTest(String name) {
 		super(name);
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
-		Vector<DataSource> source1 = new Vector<DataSource>();
-		Vector<DataSource> source2 = new Vector<DataSource>();
+		Vector<DataSource> source1 = new Vector<>();
+		Vector<DataSource> source2 = new Vector<>();
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		m.read(TEST_SERVICE_URI);
 		source2.add(new JenaPelletSource("test",m));
@@ -80,8 +80,8 @@ public class SearchServiceFactoryTest extends TestCase {
 	}
 	
 	public void testCreateLinkedDataSearchServiceFromCache() {
+        _cachedLinkedSearchServiceFactory.createSearchService(TEST_SERVICE_URI);
 		SearchService service = _cachedLinkedSearchServiceFactory.createSearchService(TEST_SERVICE_URI);
-		service = _cachedLinkedSearchServiceFactory.createSearchService(TEST_SERVICE_URI);
 		assertTrue(service.isFromCache());
 		assertTrue(service.getComment().equals(TEST_SERVICE_COMMENT));
 		assertTrue(service.getLabel().equals(TEST_SERVICE_LABEL));

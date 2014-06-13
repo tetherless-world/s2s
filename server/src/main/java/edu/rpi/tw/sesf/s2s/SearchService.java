@@ -50,7 +50,6 @@ public abstract class SearchService implements InstanceData {
 		if (getRelatedLinks() != null) map.put("links", getRelatedLinks().toArray());
 		if (this.getDataSource().getId() != null) map.put("datasource", this.getDataSource().getId());
 		map.put("cached", isFromCache());
-		JSONObject json = new JSONObject(map);
-		return json;
+        return new JSONObject(map);
 	}
 }

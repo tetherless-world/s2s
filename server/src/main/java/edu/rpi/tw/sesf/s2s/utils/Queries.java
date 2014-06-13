@@ -1,8 +1,6 @@
 package edu.rpi.tw.sesf.s2s.utils;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
@@ -363,23 +361,10 @@ public class Queries {
 				Node n = nodes.item(0);
 				return Boolean.parseBoolean(n.getTextContent());
 			}
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+		} catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
 		}
-		return false;
+        return false;
 	}
 	
 	public static ResultSet sparqlSelect(String q, Model m) {
@@ -395,16 +380,8 @@ public class Queries {
 		try {
 			URL url = new URL(ep + "?query=" + URLEncoder.encode(q,"UTF-8") + "&format=xml");
 			return ResultSetFactory.fromXML(url.openConnection().getInputStream());
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+            throw new RuntimeException(e);
 		}
-		return null;
 	}
 }

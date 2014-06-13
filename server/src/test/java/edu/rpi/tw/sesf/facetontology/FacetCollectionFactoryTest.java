@@ -30,7 +30,7 @@ public class FacetCollectionFactoryTest extends TestCase {
 	public FacetCollectionFactoryTest(String name) {
 		super(name);
 		
-		Vector<DataSource> source = new Vector<DataSource>();
+		Vector<DataSource> source = new Vector<>();
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		source.add(new JenaPelletSource("test",m));
 		m.read(TEST_FACETCOLLECTION_URI);
@@ -62,8 +62,8 @@ public class FacetCollectionFactoryTest extends TestCase {
 	}
 
 	public void testCreateCollectionFromCache() {
+        _cachedFactory.createFacetCollection(TEST_FACETCOLLECTION_URI);
 		FacetCollection facets = _cachedFactory.createFacetCollection(TEST_FACETCOLLECTION_URI);
-		facets = _cachedFactory.createFacetCollection(TEST_FACETCOLLECTION_URI);
 		int count = 0;
 		for (ConnectedFacet f : facets.getConnectedFacets()) {
 			if (TEST_FACET_LABELS.contains(f.getLabel())) count++;

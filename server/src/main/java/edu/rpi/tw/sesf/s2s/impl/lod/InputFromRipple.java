@@ -53,7 +53,7 @@ public class InputFromRipple extends Input {
 
 	private void _crawl() throws RippleException, InvalidLinkedDataIdentifierException {
 
-	    Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+	    Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(_source.getQueryEngine(), c);
 	    
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
@@ -96,7 +96,7 @@ public class InputFromRipple extends Input {
 		if (!RippleSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("LinkedDataInput requires RippleSource.");
 		}
-		_source = (RippleSource)_source;
+		_source = (RippleSource) source;
 	}
 	
 }

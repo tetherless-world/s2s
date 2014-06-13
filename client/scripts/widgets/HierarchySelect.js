@@ -14,7 +14,7 @@ if (edu.rpi.tw.sesf.s2s.widgets == undefined || typeof(edu.rpi.tw.sesf.s2s.widge
 edu.rpi.tw.sesf.s2s.widgets.HierarchySelect = function(panel) 
 {
     this.panel = panel;
-    var freetext = jQuery("<input type=\"text\"></input>");
+    var freetext = jQuery("<input type=\"text\"/>");
     jQuery(freetext).autocomplete({source: edu.rpi.tw.sesf.s2s.widgets.HierarchySelect.autocompleteSource, select: edu.rpi.tw.sesf.s2s.widgets.HierarchySelect.autocompleteSelect });
     var content = jQuery("<div style=\"height:200px;overflow:auto;border:solid 1px;border-color:#A9A9A9\" class=\"data-selector\"><span>Loading...</span></div>");
    	this.div = jQuery("<div class=\"facet-content\" style=\"width:100%\"></div>");

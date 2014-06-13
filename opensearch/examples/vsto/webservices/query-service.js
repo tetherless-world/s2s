@@ -359,7 +359,7 @@ org.vsto.webservice.getQueryResults = function()
 			}
 		}
 		jQuery("#results").children().remove();
-		jQuery("#results").append(results);
+        jQuery("#results").append(results);
 	};
 	org.vsto.webservice.ajax("POST", org.vsto.webservice.s2sProxyService, JSON.stringify(org.vsto.webservice.postData), cb);
 };

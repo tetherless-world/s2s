@@ -161,7 +161,7 @@ public class PredicateImpl extends Predicate {
 		
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

@@ -37,8 +37,8 @@ public class WidgetFactoryTest extends TestCase {
 	public WidgetFactoryTest(String name) {
 		super(name);
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
-		Vector<DataSource> source1 = new Vector<DataSource>();
-		Vector<DataSource> source2 = new Vector<DataSource>();
+		Vector<DataSource> source1 = new Vector<>();
+		Vector<DataSource> source2 = new Vector<>();
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		m.read(TEST_WIDGET_URI);
 		source2.add(new JenaPelletSource("test",m));
@@ -75,8 +75,8 @@ public class WidgetFactoryTest extends TestCase {
 	}
 	
 	public void testCreateLinkedDateWidgetFromCache() {
-		Widget widget = _cachedLinkedWidgetFactory.createWidget(TEST_WIDGET_URI);
-		widget = _cachedLinkedWidgetFactory.createWidget(TEST_WIDGET_URI);	
+		_cachedLinkedWidgetFactory.createWidget(TEST_WIDGET_URI);
+        Widget widget = _cachedLinkedWidgetFactory.createWidget(TEST_WIDGET_URI);
 		assertTrue(widget.isFromCache());
 		assertTrue(widget.getLabel().equals(TEST_WIDGET_LABEL));
 		assertTrue(widget.getComment().equals(TEST_WIDGET_COMMENT));

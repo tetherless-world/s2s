@@ -28,8 +28,8 @@ public class SearchServiceFromSparql extends SearchService {
 	public SearchServiceFromSparql(String uri, QueryableSource source) throws UnregisteredInstanceException {
 		_uri = uri;
 		_source = source;
-		_links = new Vector<String>();
-		_types = new Vector<String>();
+		_links = new Vector<>();
+		_types = new Vector<>();
 		_query();
 	}
 	
@@ -118,7 +118,7 @@ public class SearchServiceFromSparql extends SearchService {
 		if (!QueryableSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("SparqlSearchService requires QueryableSource.");
 		}
-		_source = (QueryableSource)_source;
+		_source = (QueryableSource) source;
 		_query();
 	}
 }

@@ -23,14 +23,14 @@ public class Configuration
 	
 	private static Map<String,Class<? extends WebServiceEngine>> getServiceClassConfiguration() {
 		//TODO: read configuration from text file
-		Map<String,Class<? extends WebServiceEngine>> map = new HashMap<String,Class<? extends WebServiceEngine>>();
+		Map<String,Class<? extends WebServiceEngine>> map = new HashMap<>();
 		map.put(Ontology.OpenSearchService, OpenSearchServiceEngine.class);
 		map.put(Ontology.FacetOntologyService, FacetOntologyServiceEngine.class);
 		return map;
 	}
 	
 	private static Map<String,Class<? extends DataSource>> getDataSourceClassConfiguration() {
-		Map<String,Class<? extends DataSource>> map = new HashMap<String,Class<? extends DataSource>>();
+		Map<String,Class<? extends DataSource>> map = new HashMap<>();
 		map.put(Ontology.SparqlEndpoint, SparqlSource.class);
 		map.put(Ontology.RdfFile, JenaPelletSource.class);
 		map.put(Ontology.LinkedData, RippleSource.class);
@@ -39,14 +39,14 @@ public class Configuration
 	
 	private static Map<String,FacetType> getFacetMapConfiguration() {
 		//TODO: read configuration from text file
-		Map<String,FacetType> map = new HashMap<String,FacetType>();
+		Map<String,FacetType> map = new HashMap<>();
 		map.put(Ontology.facetLiteralFacetType, FacetType.Literal);
 		map.put(Ontology.facetObjectFacetType, FacetType.Object);
 		return map;
 	}
 	
 	private static Map<String,SparqlType> getSparqlTypeConfiguration() {
-		Map<String,SparqlType> map = new HashMap<String,SparqlType>();
+		Map<String,SparqlType> map = new HashMap<>();
 		map.put(Ontology.VirtuosoSparql, SparqlType.VirtuosoSparql);
 		return map;
 	}

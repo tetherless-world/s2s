@@ -51,10 +51,10 @@ public class FirstOrderFacetImpl implements FirstOrderFacet {
 		_source = source;
 		_uri = uri;
 		_fromCache = false;
-		_filters = new Vector<Filter>();
+		_filters = new Vector<>();
 		_limit = 10;
-		_selectVars = new Vector<String>();
-		_context = new Vector<Predicate>();
+		_selectVars = new Vector<>();
+		_context = new Vector<>();
 		if (QueryableSource.class.isAssignableFrom(source.getClass())) {
 			query();
 		} else if (RippleSource.class.isAssignableFrom(source.getClass())) {
@@ -179,7 +179,7 @@ public class FirstOrderFacetImpl implements FirstOrderFacet {
 		
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

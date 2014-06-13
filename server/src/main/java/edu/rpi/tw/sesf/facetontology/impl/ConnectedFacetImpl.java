@@ -52,12 +52,12 @@ public class ConnectedFacetImpl implements ConnectedFacet {
 		_uri = uri;
 		_fromCache = false;
 		_source = source;
-		_filters = new Vector<Filter>();
-		_context = new Vector<Predicate>();
-		_selectVars = new Vector<String>();
-		_aggregateVars = new Vector<String>();
-		_codependents = new Vector<String>();
-		_pred = new Vector<Predicate>();
+		_filters = new Vector<>();
+		_context = new Vector<>();
+		_selectVars = new Vector<>();
+		_aggregateVars = new Vector<>();
+		_codependents = new Vector<>();
+		_pred = new Vector<>();
 		if (QueryableSource.class.isAssignableFrom(source.getClass())) {
 			query();
 		} else if (RippleSource.class.isAssignableFrom(source.getClass())) {
@@ -205,7 +205,7 @@ public class ConnectedFacetImpl implements ConnectedFacet {
 
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-		Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

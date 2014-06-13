@@ -67,29 +67,11 @@ public class DataSourceFactory {
 				if (sourceClass != null) {
 					sourceInst = sourceClass.getConstructor(String.class, DataSource.class).newInstance(uri, source);
 				}
-			} catch(InstantiationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (SecurityException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvocationTargetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (NoSuchMethodException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (RippleException e) {
-				// TODO Auto-generated catch block
+			} catch(InstantiationException | IllegalArgumentException | SecurityException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | RippleException e) {
+
 				e.printStackTrace();
 			}
-		}
+        }
 		
 		//log if service did not load
 		if (sourceInst == null) {
@@ -107,7 +89,7 @@ public class DataSourceFactory {
 	public Class<? extends DataSource> getDataSourceType(String uri, DataSource source) throws RippleException {
 		if (RippleSource.class.isAssignableFrom(source.getClass())) {
 			RippleSource rsource = (RippleSource)source;
-		    Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+		    Collector<RippleList,RippleException> c = new Collector<>();
 		    QueryPipe p = new QueryPipe(rsource.getQueryEngine(), c);
 		    
 		    String uriRef = "<" + uri + ">";

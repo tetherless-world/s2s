@@ -68,7 +68,7 @@ public class FacetCollectionTest extends TestCase {
 		} catch (ConfigurationException e) {
 			return;
 		}
-		Map<String,Collection<String>> map = new HashMap<String,Collection<String>>();
+		Map<String,Collection<String>> map = new HashMap<>();
 		map.put(TEST_INPUT_FACET, Arrays.asList(TEST_INPUT_FACET_VALUE, TEST_INPUT_FACET_VALUE2));
 		String query = _facets.buildConnectedFacetQuery(TEST_CONNECTED_FACET, map);
 		ResultSet rs = _sparql.sparqlSelect(query);

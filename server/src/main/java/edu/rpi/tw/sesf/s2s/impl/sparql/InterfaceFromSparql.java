@@ -29,7 +29,7 @@ public class InterfaceFromSparql extends Interface {
 	public InterfaceFromSparql(String uri, QueryableSource source) throws UnregisteredInstanceException {
 		_uri = uri;
 		_source = source;
-		_types = new Vector<String>();
+		_types = new Vector<>();
 		_query();
 	}
 	
@@ -120,7 +120,7 @@ public class InterfaceFromSparql extends Interface {
 		if (!QueryableSource.class.isAssignableFrom(source.getClass())) {
 			throw new IncompatibleDataSourceException("SparqlInterface requires QueryableSource.");
 		}
-		_source = (QueryableSource)_source;
+		_source = (QueryableSource) source;
 		_query();
 	}
 }

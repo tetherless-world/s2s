@@ -447,7 +447,7 @@ public class MetadataServletTest extends TestCase {
 				assertTrue(queryObj.getString("output").equals(TEST_QUERY_OUTPUT));
 				
 				//check if parameter query is correct
-				assertTrue(queryObj.getString("input").toString().equals(TEST_QUERY_PARAMETER));
+				assertTrue(queryObj.getString("input").equals(TEST_QUERY_PARAMETER));
 				
 			} catch (JSONException e) {
 				fail("Invalid JSON response: " + e);
@@ -493,7 +493,7 @@ public class MetadataServletTest extends TestCase {
 				assertTrue(queryObj.getString("output").equals(TEST_QUERY_OUTPUT));
 				
 				//check if parameter query is correct
-				assertTrue(queryObj.getString("input").toString().equals(TEST_QUERY_PARAMETER));
+				assertTrue(queryObj.getString("input").equals(TEST_QUERY_PARAMETER));
 				
 			} catch (JSONException e) {
 				fail("Invalid JSON response: " + e);

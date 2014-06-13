@@ -99,7 +99,7 @@ public class FacetOntologyServiceEngineTest extends TestCase {
 			return;
 		}
 		MockHttpServletResponse response = new MockHttpServletResponse();
-		Map<String,String> inputs = new HashMap<String,String>();
+		Map<String,String> inputs = new HashMap<>();
 		inputs.put(TEST_SERVICE_INPUT, TEST_SERVICE_INPUT_VALUE);
 		_sparqlService.getWebServiceEngine().runQuery(TEST_SERVICE_QUERY, inputs, response);
 		JSONArray arr = new JSONArray(response.getContentAsString());
@@ -127,7 +127,7 @@ public class FacetOntologyServiceEngineTest extends TestCase {
 			return;
 		}
 		MockHttpServletResponse response = new MockHttpServletResponse();
-		Map<String,String> inputs = new HashMap<String,String>();
+		Map<String,String> inputs = new HashMap<>();
 		inputs.put(TEST_SERVICE_INPUT, TEST_SERVICE_INPUT_VALUE);
 		_linkedService.getWebServiceEngine().runQuery(TEST_SERVICE_QUERY, inputs, response);
 		JSONArray arr = new JSONArray(response.getContentAsString());

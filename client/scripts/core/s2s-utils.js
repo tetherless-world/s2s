@@ -31,11 +31,10 @@ if (edu.rpi.tw.sesf.s2s.utils == undefined || typeof(edu.rpi.tw.sesf.s2s.utils) 
 		var select = $("<select class=\"widget-selector-list\" width=\"inherit\"><option value='blank'>Loading widget options...</option></select>");
 		var span = $("<span class=\"widget-selector-info\"></span>");
 		var submit = $("<button class=\"widget-selector-submit\">OK</button>");
-		var table = $("<table class=\"widget-selector\"></table>").
-			append($("<tr></tr>").append(select)).
-			append($("<tr></tr>").append(span)).
-			append($("<tr></tr>").append(submit));
-		return table;
+        return $("<table class=\"widget-selector\"></table>").
+            append($("<tr></tr>").append(select)).
+            append($("<tr></tr>").append(span)).
+            append($("<tr></tr>").append(submit));
 	}
 
 	s2s.utils.getPagedResultWidgetFrame = function()

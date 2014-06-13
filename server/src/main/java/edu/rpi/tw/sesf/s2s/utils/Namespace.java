@@ -24,10 +24,9 @@ public enum Namespace {
 	public static String getSparqlPrefixes() {
 		Namespace[] curies = Namespace.values();
 		String result = "";
-		for (int i = 0; i < curies.length; ++i)
-		{
-			result += "PREFIX " + curies[i] + ": <" + curies[i].getURI() + ">\n";
-		}
+        for (Namespace cury : curies) {
+            result += "PREFIX " + cury + ": <" + cury.getURI() + ">\n";
+        }
 		return result;
 	}
 }

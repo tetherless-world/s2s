@@ -10,7 +10,7 @@ if (edu.rpi.tw.sesf.s2s.widgets == undefined || typeof(edu.rpi.tw.sesf.s2s.widge
 
 edu.rpi.tw.sesf.s2s.widgets.ContextSelect = function(panel) {
 	this.panel = panel;
-	var freetext = jQuery("<input type=\"text\"></input>");
+	var freetext = jQuery("<input type=\"text\"/>");
     jQuery(freetext).autocomplete({source: edu.rpi.tw.sesf.s2s.widgets.ContextSelect.autocompleteSource , select: edu.rpi.tw.sesf.s2s.widgets.ContextSelect.autocompleteSelect });
 	this.selectbox = jQuery("<div style=\"height:12em;border: 1px solid gray;overflow: auto;\"></div>");
 	this.div = jQuery("<div></div>");

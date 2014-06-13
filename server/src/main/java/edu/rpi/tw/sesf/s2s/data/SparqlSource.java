@@ -124,12 +124,12 @@ public class SparqlSource implements QueryableSource {
 		_isFromCache = true;
 	}
 	
-	private void _crawl() throws UnregisteredInstanceException, RippleException {
+	private void _crawl() throws RippleException {
 		RippleSource rsource = (RippleSource)_source;
 		
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-	    Collector<RippleList,RippleException> c = new Collector<RippleList,RippleException>();
+	    Collector<RippleList,RippleException> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(rsource.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

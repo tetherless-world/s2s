@@ -19,7 +19,7 @@ public abstract class Predicate implements Serializable, InstanceData {
 	public abstract boolean isOptional();
 	
 	public Collection<Predicate> getList() {
-		Vector<Predicate> ret = new Vector<Predicate>();
+		Vector<Predicate> ret = new Vector<>();
 		Predicate p = this;
 		while (p != null) {
 			ret.add(p);

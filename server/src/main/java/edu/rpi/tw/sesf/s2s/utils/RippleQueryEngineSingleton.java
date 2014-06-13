@@ -35,8 +35,7 @@ public class RippleQueryEngineSingleton {
 		    LinkedDataSail sail = new LinkedDataSail(baseSail);
 		    sail.initialize();
 		    Model model = new SesameModel(sail);
-		    QueryEngine qe = new QueryEngine(model);
-		    return qe;
+            return new QueryEngine(model);
 		} catch (SailException e) {
 			log.error(e.getMessage(), e);
 			return null;

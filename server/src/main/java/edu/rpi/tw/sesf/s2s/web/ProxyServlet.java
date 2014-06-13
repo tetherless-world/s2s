@@ -53,11 +53,9 @@ private static final long serialVersionUID = 4192965662302643319L;
 			log.warn("Could not open S2S properties file");
 		}
 		Collection<DataSource> sources = Utils.getDataSources(s2sConfig,config.getInitParameter("s2s-sources-property"));
-		//boolean caching = (s2sConfig != null) ? s2sConfig.getBoolean(config.getInitParameter("s2s-caching-property"),false) : false;
-		boolean caching = true;
-		
+
 		//initialize factories
-		_searchServiceFactory = new SearchServiceFactory(sources, caching);
+		_searchServiceFactory = new SearchServiceFactory(sources, true);
 
 		//initialize log4j
 		String log4jLocation = config.getInitParameter("log4j-properties-location");
@@ -82,7 +80,7 @@ private static final long serialVersionUID = 4192965662302643319L;
             throws ServletException, IOException {
 		try {
 			BufferedReader reader = request.getReader();
-			String line = null;
+			String line;
 			String content = "";
 			while ((line = reader.readLine()) != null) {
 				content += line + "\n";
@@ -97,8 +95,8 @@ private static final long serialVersionUID = 4192965662302643319L;
 				return;
 			}
 			
-			String service = null;
-			String _interface = null;
+			String service;
+			String _interface;
 			
 			try {
 				service = json.getString("service");
@@ -139,7 +137,7 @@ private static final long serialVersionUID = 4192965662302643319L;
 
 	@SuppressWarnings("rawtypes")
 	private Map<String, String> _parseInputs(JSONObject json) {
-		Map<String, String> ret = new HashMap<String, String>();
+		Map<String, String> ret = new HashMap<>();
 		Iterator i = json.keys();
 		while (i.hasNext()) {
 			String s = i.next().toString();

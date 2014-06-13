@@ -15,7 +15,7 @@ edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect = function(panel)
 {
 	this.panel = panel;
 	var input = panel.getInput();
-    var freetext = jQuery("<input type=\"text\"></input>");
+    var freetext = jQuery("<input type=\"text\"/>");
     jQuery(freetext).autocomplete({source: edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect.autocompleteSource , select: edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect.autocompleteSelect });
     var select = jQuery("<select class=\"data-selector\" multiple size=\"8\" style=\"width:100%\"><option value=\"blank\">Loading...</option></select>");
     this.div = jQuery("<div class=\"facet-content\" style=\"width:100%\"></div>");
@@ -29,7 +29,7 @@ edu.rpi.tw.sesf.s2s.widgets.UnsortedFacetedSelect = function(panel)
 	var self = this;
     jQuery(select).change(function() {
 		self.updateState();
-        if (jQuery(select).val() != "blank");
+        if (jQuery(select).val() != "blank")
         {
             panel.notify();
         }

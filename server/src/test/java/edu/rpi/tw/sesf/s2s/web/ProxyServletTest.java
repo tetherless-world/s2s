@@ -70,7 +70,7 @@ public class ProxyServletTest extends TestCase {
 		try {
 			json.put("service", TEST_SERVLET_SERVICE);
 			json.put("interface", TEST_SERVLET_QUERY);
-			Map<String,String> parameters = new HashMap<String,String>();
+			Map<String,String> parameters = new HashMap<>();
 			parameters.put(TEST_SERVLET_PARAMETER, TEST_SERVLET_PARAMETER_VALUE);
 			json.put("inputs", parameters);
 		} catch (JSONException e) {

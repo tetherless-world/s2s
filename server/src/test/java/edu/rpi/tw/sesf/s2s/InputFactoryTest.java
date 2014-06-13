@@ -37,8 +37,8 @@ public class InputFactoryTest extends TestCase {
 	public InputFactoryTest(String name) {
 		super(name);
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
-		Vector<DataSource> source1 = new Vector<DataSource>();
-		Vector<DataSource> source2 = new Vector<DataSource>();
+		Vector<DataSource> source1 = new Vector<>();
+		Vector<DataSource> source2 = new Vector<>();
 		source1.add(new RippleSource("test",qe));
 		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
 		m.read(TEST_PARAMETER_URI);
@@ -75,8 +75,8 @@ public class InputFactoryTest extends TestCase {
 	}
 	
 	public void testCreateLinkedDataInputFromCache() {
+        _cachedLinkedInputFactory.createInput(TEST_PARAMETER_URI);
 		Input param = _cachedLinkedInputFactory.createInput(TEST_PARAMETER_URI);
-		param = _cachedLinkedInputFactory.createInput(TEST_PARAMETER_URI);
 		assertTrue(param.isFromCache());
 		assertTrue(param.getLabel().equals(TEST_PARAMETER_LABEL));
 		assertTrue(param.getComment().equals(TEST_PARAMETER_COMMENT));

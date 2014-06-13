@@ -47,7 +47,7 @@ edu.rpi.tw.sesf.s2s.widgets.IodpResultWidget.prototype.update = function(data)
     var textToInsert = '';
     var parent = jQuery(this.div).find('#show');
 
-    jQuery("#rounded-corner tr").remove(".rdata");  //  remove rdata class elements from any previous search
+    jQuery("#rounded-corner").find("tr").remove(".rdata");  //  remove rdata class elements from any previous search
 
     jQuery.each(data, function (count, value) {
 		var parts = data[count].uri.split("/");    //  get the URL, split it up so I can put the last element in the A tag below
