@@ -96,7 +96,7 @@ public class WidgetFromRipple extends Widget {
 
 	private void _crawl() throws RippleException, InvalidLinkedDataIdentifierException {
 	    
-	    Collector<RippleList,RippleException> c = new Collector<>();
+	    Collector<RippleList> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(_source.getQueryEngine(), c);
 	    
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");

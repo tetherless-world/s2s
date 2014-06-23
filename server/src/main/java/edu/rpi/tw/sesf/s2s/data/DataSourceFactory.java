@@ -89,7 +89,7 @@ public class DataSourceFactory {
 	public Class<? extends DataSource> getDataSourceType(String uri, DataSource source) throws RippleException {
 		if (RippleSource.class.isAssignableFrom(source.getClass())) {
 			RippleSource rsource = (RippleSource)source;
-		    Collector<RippleList,RippleException> c = new Collector<>();
+		    Collector<RippleList> c = new Collector<>();
 		    QueryPipe p = new QueryPipe(rsource.getQueryEngine(), c);
 		    
 		    String uriRef = "<" + uri + ">";

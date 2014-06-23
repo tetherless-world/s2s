@@ -117,7 +117,7 @@ public class FacetOntologyServiceEngine implements WebServiceEngine {
 	private void _crawl() throws RippleException {
 		RippleSource source = (RippleSource)_service.getDataSource();
 				
-		Collector<RippleList,RippleException> c = new Collector<>();
+		Collector<RippleList> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _service.getURI() + ">";

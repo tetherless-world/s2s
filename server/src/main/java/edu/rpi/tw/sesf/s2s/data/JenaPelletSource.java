@@ -151,7 +151,7 @@ public class JenaPelletSource implements QueryableSource {
 		
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-	    Collector<RippleList,RippleException> c = new Collector<>();
+	    Collector<RippleList> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(rsource.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

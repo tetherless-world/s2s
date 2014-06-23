@@ -88,7 +88,7 @@ public class FilterImpl implements Filter {
 		
 	    Pattern literalPattern = Pattern.compile("\"(.*?)\"(\\^\\^<(.*?)>)?");
 		
-		Collector<RippleList,RippleException> c = new Collector<>();
+		Collector<RippleList> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";

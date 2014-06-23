@@ -105,7 +105,7 @@ public class FacetCollectionImpl extends FacetCollection {
 	private void crawl() throws RippleException, UnregisteredInstanceException {
 		RippleSource source = (RippleSource)_source;
 		
-		Collector<RippleList,RippleException> c = new Collector<>();
+		Collector<RippleList> c = new Collector<>();
 	    QueryPipe p = new QueryPipe(source.getQueryEngine(), c);
 	    
 	    String uriRef = "<" + _uri + ">";
