@@ -1,8 +1,9 @@
 package edu.rpi.tw.sesf.s2s.data;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+//import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 import edu.rpi.tw.sesf.s2s.exception.IncompatibleDataSourceException;
@@ -27,7 +28,7 @@ public class SparqlSourceTest extends TestCase {
 	 */
 	public SparqlSourceTest(String name) throws IncompatibleDataSourceException, UnregisteredInstanceException, InvalidLinkedDataIdentifierException {
 		super(name);
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		m.read(TEST_URI);
 		DataSource s = new JenaPelletSource("test",m);
 		_source = new SparqlSource(TEST_URI, s);

@@ -13,9 +13,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <org.springframework.version>2.5.6</org.springframework.version>
         <org.springframework.mock.version>2.0.8</org.springframework.mock.version>
-        <jena.version>2.6.4</jena.version>
-        <arq.version>2.8.8</arq.version>
-        <pellet.version>2.3.0</pellet.version>
+        <jena.version>2.10.1</jena.version>
     </properties>
 
     <repositories>
@@ -76,21 +74,15 @@
         </dependency>
 
         <dependency>
-            <groupId>com.hp.hpl.jena</groupId>
-            <artifactId>jena</artifactId>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-core</artifactId>
             <version>${jena.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.hp.hpl.jena</groupId>
-            <artifactId>arq</artifactId>
-            <version>${arq.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.clarkparsia.pellet</groupId>
-            <artifactId>pellet-jena</artifactId>
-            <version>${pellet.version}</version>
+            <groupId>org.apache.jena</groupId>
+            <artifactId>jena-arq</artifactId>
+            <version>${jena.version}</version>
         </dependency>
 
         <dependency>

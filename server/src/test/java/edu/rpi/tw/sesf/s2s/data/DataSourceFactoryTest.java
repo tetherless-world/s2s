@@ -5,9 +5,10 @@ package edu.rpi.tw.sesf.s2s.data;
 
 import java.util.Vector;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+//import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 import edu.rpi.tw.sesf.s2s.utils.RippleQueryEngineSingleton;
@@ -35,7 +36,7 @@ public class DataSourceFactoryTest extends TestCase {
 		super(name);
 		Vector<DataSource> source1 = new Vector<>();
 		Vector<DataSource> source2 = new Vector<>();
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		m.read(TEST_FILE_DATASOURCE_URI);
 		source1.add(new JenaPelletSource("test",m));
 		source2.add(new RippleSource("test",RippleQueryEngineSingleton.getInstance()));

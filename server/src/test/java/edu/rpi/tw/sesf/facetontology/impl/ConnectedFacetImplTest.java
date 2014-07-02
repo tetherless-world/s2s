@@ -1,8 +1,9 @@
 package edu.rpi.tw.sesf.facetontology.impl;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+//import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 import edu.rpi.tw.sesf.facetontology.FacetType;
@@ -35,7 +36,7 @@ public class ConnectedFacetImplTest extends TestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		m.read(TEST_URI);
 		_facet = new ConnectedFacetImpl(TEST_URI, new JenaPelletSource("test",m));
 		_linkedFacet = new ConnectedFacetImpl(TEST_URI, new RippleSource("test",RippleQueryEngineSingleton.getInstance()));

@@ -1,6 +1,7 @@
 package edu.rpi.tw.sesf.facetontology.impl;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+////import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -32,7 +33,8 @@ public class PredicateImplTest extends TestCase {
 	 */
 	protected void setUp() throws Exception {
 		super.setUp();
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
+
 		m.read(TEST_URI);
 		_pred = new PredicateImpl(TEST_URI, new JenaPelletSource("test",m));
 		_linked = new PredicateImpl(TEST_URI, new RippleSource("test",RippleQueryEngineSingleton.getInstance()));

@@ -3,12 +3,13 @@ package edu.rpi.tw.sesf.s2s.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import net.fortytwo.flow.Collector;
 import net.fortytwo.ripple.RippleException;
 import net.fortytwo.ripple.model.RippleList;
 import net.fortytwo.ripple.query.QueryPipe;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+////import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.QuerySolution;
@@ -78,18 +79,18 @@ public class JenaPelletSource implements QueryableSource {
 	
 	public JenaPelletSource(String id, String url, String lang) {
 		_id = id;
-		_model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+        _model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		_model.read(url, lang);
 	}
 	
 	public JenaPelletSource(String id, Model model) {
 		_id = id;
-		_model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC, model);
+        _model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
 	}
 	
 	public JenaPelletSource(String id, Model model, String graph) {
 		_id = id;
-		_model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC, model);
+        _model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
 		_graph = graph;
 	}
 	
@@ -106,7 +107,8 @@ public class JenaPelletSource implements QueryableSource {
 	}
 	
 	public void setModel(Model model) {
-		_model = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC, model);
+        _model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
+		//_model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
 	}
 
 	@Override

@@ -5,9 +5,10 @@ package edu.rpi.tw.sesf.s2s;
 
 import java.util.Vector;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+//import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 import net.fortytwo.ripple.query.QueryEngine;
@@ -39,7 +40,7 @@ public class WidgetFactoryTest extends TestCase {
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
 		Vector<DataSource> source1 = new Vector<>();
 		Vector<DataSource> source2 = new Vector<>();
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		m.read(TEST_WIDGET_URI);
 		source2.add(new JenaPelletSource("test",m));
 		source1.add(new RippleSource("test",qe));

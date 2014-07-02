@@ -8,9 +8,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import net.fortytwo.ripple.query.QueryEngine;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+//import org.mindswap.pellet.jena.PelletReasonerFactory;
 import org.springframework.mock.web.MockHttpServletResponse;
 
 import com.hp.hpl.jena.ontology.OntModel;
@@ -54,7 +55,7 @@ public class OpenSearchServiceEngineTest extends TestCase {
 		super.setUp();
 		QueryEngine qe = RippleQueryEngineSingleton.getInstance();
 		_linkedEngine = new OpenSearchServiceEngine(new SearchServiceFromRipple(TEST_SERVICE_URI, new RippleSource("test",qe)));
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		m.read(TEST_SERVICE_URI);
 		_sparqlEngine = new OpenSearchServiceEngine(new SearchServiceFromSparql(TEST_SERVICE_URI, new JenaPelletSource("test",m)));
 	}

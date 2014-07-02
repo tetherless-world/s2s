@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Vector;
 
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+////import org.mindswap.pellet.jena.PelletReasonerFactory;
 
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -31,7 +32,7 @@ public class FacetCollectionFactoryTest extends TestCase {
 		super(name);
 		
 		Vector<DataSource> source = new Vector<>();
-		OntModel m = ModelFactory.createOntologyModel(PelletReasonerFactory.THE_SPEC);
+		OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF);
 		source.add(new JenaPelletSource("test",m));
 		m.read(TEST_FACETCOLLECTION_URI);
 		_jenaFactory = new FacetCollectionFactory(source, false);
