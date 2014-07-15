@@ -78,8 +78,7 @@ private static final long serialVersionUID = 4192965662302643319L;
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-		try {
-			BufferedReader reader = request.getReader();
+		try (BufferedReader reader = request.getReader()) {
 			String line;
 			String content = "";
 			while ((line = reader.readLine()) != null) {

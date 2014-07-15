@@ -106,13 +106,15 @@ public class Utils {
 			nBytes = 1024;
 		}
 		
-		PrintWriter writer = response.getWriter();
-		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-		char[] bytes = new char[nBytes];
-		int readBytes;
-		while ((readBytes = br.read(bytes)) >= 0) {
-			writer.write(bytes, 0, readBytes);
-		}
+		try (PrintWriter writer = response.getWriter()) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+                char[] bytes = new char[nBytes];
+                int readBytes;
+                while ((readBytes = br.read(bytes)) >= 0) {
+                    writer.write(bytes, 0, readBytes);
+                }
+            }
+        }
     }
     
 	public static Collection<DataSource> getDataSources(org.apache.commons.configuration.Configuration config, String property) {
@@ -162,34 +164,36 @@ public class Utils {
     	if (config == null) {
 			sources.add(new RippleSource("default",RippleQueryEngineSingleton.getNewInstance()));
     	} else {
-    		try {
-		    	BufferedReader br = new BufferedReader(new InputStreamReader(config));
+    		try (BufferedReader br = new BufferedReader(new InputStreamReader(config))) {
 		    	String line;
 		    	while ((line = br.readLine()) != null) {
 		    		String[] parts = line.split("\t");
-		    		if (parts[0].equals("sparql")) {
-		    			sources.add(new SparqlSource("sparql",parts[1],parts[2],(parts.length > 3) ? parts[3] : null));
-		    		} else if (parts[0].equals("lod")) {
-		    			sources.add(new RippleSource("lod",RippleQueryEngineSingleton.getInstance()));
-		    		} else if (parts[0].equals("jena")) {
-		    			Model m = ModelFactory.createDefaultModel();
-		    			for (int i = 1; i < parts.length; i += 2) {
-		    				if (rdfLangs.contains(parts[i]) && i < (parts.length - 1))
-		    				{
-		    					if (parts[i+1].startsWith("file://")) {
-		    						try {
-		    							m.read(new FileInputStream(parts[i+1].substring(6)), null, parts[i]);
-		    						} catch (FileNotFoundException e) {
-		    							log.warn("Could not load data from file: " + parts[i]);
-		    						}
-		    					}
-		    					else if (parts[i+1].startsWith("http://")) {
-		    						m.read(parts[i+1],parts[i]);
-		    					}
-		    				}
-		    			}
-		    			sources.add(new JenaPelletSource("jena",m));
-		    		}
+
+                    switch (parts[0]) {
+                        case "sparql":
+                            sources.add(new SparqlSource("sparql", parts[1], parts[2], (parts.length > 3) ? parts[3] : null));
+                            break;
+                        case "lod":
+                            sources.add(new RippleSource("lod", RippleQueryEngineSingleton.getInstance()));
+                            break;
+                        case "jena":
+                            Model m = ModelFactory.createDefaultModel();
+                            for (int i = 1; i < parts.length; i += 2) {
+                                if (rdfLangs.contains(parts[i]) && i < (parts.length - 1)) {
+                                    if (parts[i + 1].startsWith("file://")) {
+                                        try {
+                                            m.read(new FileInputStream(parts[i + 1].substring(6)), null, parts[i]);
+                                        } catch (FileNotFoundException e) {
+                                            log.warn("Could not load data from file: " + parts[i]);
+                                        }
+                                    } else if (parts[i + 1].startsWith("http://")) {
+                                        m.read(parts[i + 1], parts[i]);
+                                    }
+                                }
+                            }
+                            sources.add(new JenaPelletSource("jena", m));
+                            break;
+                    }
 		    	}
     		} catch (IOException e) {
     			sources.clear();
@@ -257,6 +261,7 @@ public class Utils {
 	    	obj.put("offset", inputs.get(Ontology.opensearchStartIndex));
     	} catch (JSONException e) {
     		//TODO: error handling
+            throw new RuntimeException(e);
     	}
     	return obj.toString();
 	}

@@ -9,8 +9,6 @@ import net.fortytwo.ripple.RippleException;
 import net.fortytwo.ripple.model.RippleList;
 import net.fortytwo.ripple.query.QueryPipe;
 
-////import org.mindswap.pellet.jena.PelletReasonerFactory;
-
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
@@ -108,7 +106,6 @@ public class JenaPelletSource implements QueryableSource {
 	
 	public void setModel(Model model) {
         _model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
-		//_model = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, model);
 	}
 
 	@Override

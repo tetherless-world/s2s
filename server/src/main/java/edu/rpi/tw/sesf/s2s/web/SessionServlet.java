@@ -73,14 +73,15 @@ public class SessionServlet extends HttpServlet {
 			if (!f.canRead()) {
 				throw new UrlParameterException(422, "Session does not exist for \"key\" = " + key[0]);
 			}
-			BufferedReader reader = new BufferedReader(new FileReader(f));
-			char[] buffer = new char[65536];
-			int n;
-			StringWriter sw = new StringWriter();
-			while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
-			response.setHeader("Content-Type", "application/json");
-			Writer writer = response.getWriter();
-			writer.write(sw.toString());
+			try (BufferedReader reader = new BufferedReader(new FileReader(f))) {
+                char[] buffer = new char[65536];
+                int n;
+                StringWriter sw = new StringWriter();
+                while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
+                response.setHeader("Content-Type", "application/json");
+                Writer writer = response.getWriter();
+                writer.write(sw.toString());
+            }
 		} catch (UrlParameterException e) {
     		log.error(e.getMessage(), e);
     		response.sendError(e.getErrorCode(), e.getMessage());
@@ -90,24 +91,26 @@ public class SessionServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException {
 
-        BufferedReader reader = request.getReader();
-        StringWriter sw = new StringWriter();
-        char[] buffer = new char[65536];
-        int n;
-        while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
+        try (BufferedReader reader = request.getReader()) {
+            StringWriter sw = new StringWriter();
+            char[] buffer = new char[65536];
+            int n;
+            while ((n = reader.read(buffer)) > 0) sw.write(buffer, 0, n);
 
-        String key = Integer.toString(sw.toString().hashCode());
-        key = key.replace('-', 'n');
+            String key = Integer.toString(sw.toString().hashCode());
+            key = key.replace('-', 'n');
 
-        File f;
-        if (_directory != null && !_directory.equals("")) f = new File(_directory + "/" + key);
-        else f = new File(key);
+            File f;
+            if (_directory != null && !_directory.equals("")) f = new File(_directory + "/" + key);
+            else f = new File(key);
 
-        BufferedWriter fw = new BufferedWriter(new FileWriter(f));
-        fw.write(sw.toString());
-        fw.flush();
+            try (BufferedWriter fw = new BufferedWriter(new FileWriter(f))) {
+                fw.write(sw.toString());
+                fw.flush();
 
-        Writer rw = response.getWriter();
-        rw.write(key);
+                Writer rw = response.getWriter();
+                rw.write(key);
+            }
+        }
     }
 }
