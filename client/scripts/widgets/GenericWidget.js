@@ -13,7 +13,7 @@ if (edu.rpi.tw.sesf.s2s.widgets == undefined || typeof(edu.rpi.tw.sesf.s2s.widge
  */
 edu.rpi.tw.sesf.s2s.widgets.GenericWidget = function(panel) {
 	this.panel = panel;
-	var input = panel.getInput();
+	//var input = panel.getInput();
 	var input = jQuery("<input type=\"text\"/>");
 	this.div =  jQuery("<div class=\"facet-content\"></div>");
 	panel.setInputData(input.getId(), function() {
@@ -25,29 +25,29 @@ edu.rpi.tw.sesf.s2s.widgets.GenericWidget = function(panel) {
 		panel.notify();
     });
 	jQuery(this.div).append(input);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.FacetedSelect.prototype.updateState = function(clicked)
 {
 	this.state = this.div.find("input").val();
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.FacetedSelect.prototype.getState = function()
 {
 	return this.state;
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.FacetedSelect.prototype.setState = function(state)
 {
  	this.div.find("input").val(state);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.GenericWidget.prototype.reset = function()
 {
     this.div.find("input").val("");
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.GenericWidget.prototype.get = function()
 {
 	return this.div;
-}
+};

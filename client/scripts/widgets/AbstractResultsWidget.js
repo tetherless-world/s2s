@@ -22,42 +22,42 @@ org.essilod.s2s.AbstractResultsWidget = function(panel) {
 	});
 	this.limit = this.panel.getInterface().getDefaultLimit();
 	this.offset = 0;
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.updateState = function()
 {
 	this.state = {"limit":this.limit,"offset":this.offset};
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.setState = function(state)
 {
 	this.state = {"limit":this.limit,"offset":this.offset};
 	this.panel.notify(true, true, true);
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.getState = function()
 {
 	return this.state;
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.get = function()
 {
 	return this.div;
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.myReset = function()
 {
-	jQuery(this.div).find(".html").children().remove()
+	jQuery(this.div).find(".html").children().remove();
 	jQuery(this.div).find(".html").append("<span>Loading...</span>");
 	jQuery(this.div).find(".paging-panel").children().remove();
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.reset = function()
 {
 	this.myReset();
 	this.limit = this.panel.getInterface().getDefaultLimit();
 	this.offset = 0;
-}
+};
 
 org.essilod.s2s.AbstractResultsWidget.prototype.update = function(data)
 {
@@ -118,7 +118,7 @@ org.essilod.s2s.AbstractResultsWidget.prototype.update = function(data)
 		self.myReset();
 		self.updateState();
 		self.panel.notify(true, true, true);
-    }
+    };
 
     var prevCallback = function() 
     {
@@ -134,7 +134,7 @@ org.essilod.s2s.AbstractResultsWidget.prototype.update = function(data)
 		self.myReset();
 		self.updateState();
 		self.panel.notify(true, true, true);
-    }
+    };
 
     /**
      * Create paging panel
@@ -200,4 +200,4 @@ org.essilod.s2s.AbstractResultsWidget.prototype.update = function(data)
 		}
 		jQuery(this.div).find(".paging-panel").append(panel);
     }
-}
+};

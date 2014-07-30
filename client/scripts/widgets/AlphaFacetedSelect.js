@@ -36,7 +36,7 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect = function(panel) {
     jQuery(this.div).append(freetext);
     jQuery(this.div).append("<br/>");
     jQuery(this.div).append(select);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.updateState = function(clicked)
 {
@@ -44,12 +44,12 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.updateState = function(
 	if (this.state == null) this.state = {};
 	if (this.state[val] == null) this.state[val] = 1;
 	else delete this.state[val];
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.getState = function()
 {
 	return this.state;
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.setState = function(state)
 {
@@ -57,25 +57,25 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.setState = function(sta
 	jQuery(Object.keys(state)).each(function() {
 		jQuery(self.div).find("option[value=\"" + this + "\"]").attr("selected","selected");
 	});
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.get = function()
 {
 	return this.div;
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.reset = function()
 {
 	var select = jQuery(this.div).find("select.data-selector");
 	jQuery(select).children().remove();
     jQuery(select).append("<option value=\"blank\">Loading...</option>");
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.update = function(data)
 {
     var f = function(o1,o2) {
         return (o1.label <= o2.label) ? -1 : 1;
-    }
+    };
 	data = JSON.parse(data);
     data.sort(f);
 	var select = jQuery(this.div).find("select");
@@ -91,7 +91,7 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.prototype.update = function(data)
                     text(label + ' (' + this.count + ')'));
         }
     });
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.autocompleteSource = function(term, callback)
 {
@@ -109,7 +109,7 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.autocompleteSource = function(ter
         }
     }
     callback(data);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.autocompleteSelect = function(event, ui)
 {
@@ -118,4 +118,4 @@ edu.rpi.tw.sesf.s2s.widgets.AlphaFacetedSelect.autocompleteSelect = function(eve
     jQuery(item.option).parent().change();
     event.target.value = '';
     event.stopPropagation();
-}
+};

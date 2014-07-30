@@ -13,7 +13,6 @@ if (edu.rpi.tw.sesf.s2s.widgets == undefined || typeof(edu.rpi.tw.sesf.s2s.widge
  */
 edu.rpi.tw.sesf.s2s.widgets.DateWidget = function(panel) {
 	this.panel = panel;
-	var input = panel.getInput();
 	var input = jQuery("<input type=\"text\"/>");
 	jQuery(input).datepicker({ dateFormat: 'yy-mm-dd' });
 	this.div =  jQuery("<div class=\"facet-content\"></div>");
@@ -26,24 +25,24 @@ edu.rpi.tw.sesf.s2s.widgets.DateWidget = function(panel) {
 		panel.notify();
     });
 	jQuery(this.div).append(input);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.DateWidget.prototype.updateState = function(clicked)
 {
 	this.state = this.div.find("input").val();
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.DateWidget.prototype.getState = function()
 {
 	return this.state;
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.DateWidget.prototype.setState = function(state)
 {
 	this.div.find("input").val(state);
-}
+};
 
 edu.rpi.tw.sesf.s2s.widgets.DateWidget.prototype.get = function()
 {
 	return this.div;
-}
+};

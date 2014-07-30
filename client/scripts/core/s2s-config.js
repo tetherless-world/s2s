@@ -2,10 +2,11 @@
 	/**
 	 * Globals
 	 */
-	s2s.utils.servletRoot = "http://aquarius.tw.rpi.edu/projects/s2s/tomcat/s2s/";
+	s2s.utils.servletRoot = "http://data.tw.rpi.edu/rds-s2s/s2s/";
 	s2s.utils.metadataService = s2s.utils.servletRoot + "metadata";
 	s2s.utils.proxyService = s2s.utils.servletRoot + "proxy";
-	s2s.utils.sessionService = "http://aquarius.tw.rpi.edu/projects/s2s/tomcat/s2s/session";
+	s2s.utils.sessionService = s2s.utils.servletRoot + "session";
+	
 	s2s.utils.searchWidgetClass = "http://escience.rpi.edu/ontology/sesf/s2s/4/0/InputWidget";
 	s2s.utils.resultsWidgetClass = "http://escience.rpi.edu/ontology/sesf/s2s/4/0/ResultsWidget";
 	s2s.utils.resultsQueryUri = "http://escience.rpi.edu/ontology/sesf/s2s/4/0/SearchResultsInterface";
