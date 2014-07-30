@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+	xmlns:geo="http://a9.com/-/opensearch/extensions/geo/1.0/"
+	xmlns:time="http://a9.com/-/opensearch/extensions/time/1.0/"
+	xmlns:rds="http://data.tw.rpi.edu/rds-s2s/rds.ttl#"
+	xmlns:core="http://escience.rpi.edu/ontology/sesf/s2s-core/4/0/">
+
+  <ShortName>Rensselear Data Services Search Service</ShortName>
+  <Description>Rensselear Data Services Search Service</Description>
+  <Tags></Tags>
+  <Contact>Stephan Zednik</Contact>
+  <Url type="application/json" rel="rds:YearsQuery" template="http://data.tw.rpi.edu/rds-s2s/search.php?request=years&amp;authors={rds:Authors?}&amp;contributors={rds:Contributors?}&amp;keywords={rds:Keywords?}" />
+  <Url type="application/json" rel="rds:AuthorsQuery" template="http://data.tw.rpi.edu/rds-s2s/search.php?request=authors&amp;years={rds:Years?}&amp;contributors={rds:Contributors?}&amp;keywords={rds:Keywords?}" />
+  <Url type="application/json" rel="rds:ContributorsQuery" template="http://data.tw.rpi.edu/rds-s2s/search.php?request=contributors&amp;authors={rds:Authors?}&amp;years={rds:Years?}&amp;keywords={rds:Keywords?}" />
+  <Url type="application/json" rel="rds:KeywordsQuery" template="http://data.tw.rpi.edu/rds-s2s/search.php?request=keywords&amp;contributors={rds:Contributors?}&amp;authors={rds:Authors?}&amp;years={rds:Years?}" />
+  <Url type="text/html" rel="core:ResultsListQuery" template="http://data.tw.rpi.edu/rds-s2s/search.php?request=datasets&amp;authors={rds:Authors?}&amp;contributors={rds:Contributors?}&amp;keywords={rds:Keywords?}&amp;years={rds:Years?}&amp;limit={count}&amp;offset={startIndex}" />
+  <LongName>Rensselear Data Services Search Service</LongName>
+  <Developer>Stephan Zednik</Developer>
+  <Attribution></Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+  <Language>en-us</Language>
+  <OutputEncoding>UTF-8</OutputEncoding>
+  <InputEncoding>UTF-8</InputEncoding>
+</OpenSearchDescription>
+
