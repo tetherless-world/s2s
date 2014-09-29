@@ -36,6 +36,7 @@ class RDS_S2SConfig extends S2SConfig
 	
 		$options = array(
 			CURLOPT_CONNECTTIMEOUT => 10,
+            CURLOPT_FOLLOWLOCATION => true,
 			CURLOPT_TIMEOUT => 60
 		);
 				
