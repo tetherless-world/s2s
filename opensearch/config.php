@@ -104,15 +104,17 @@ abstract class S2SConfig
 	* @return string constraints component of SPARQL query
 	*/
 	public function getQueryConstraints(array $constraints) {
-				
-		$arr = array();	
-		foreach($constraints as $constraint_type => $constraint_values) {			
-			foreach($constraint_values as $i => $constraint_value) {
+
+        $body = "";
+		foreach($constraints as $constraint_type => $constraint_values) {
+            $arr = array();
+            foreach($constraint_values as $i => $constraint_value) {
 				$constraint_clause = $this->getQueryConstraint($constraint_type, $constraint_value);
 				array_push($arr, $constraint_clause);
 			}
+            $body .= implode('UNION', $arr) . ' ';
 		}
-		return implode('UNION', $arr) . ' ';
+		return $body;
 	}
 	
 	/**
