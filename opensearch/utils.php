@@ -1,13 +1,14 @@
 <?php
 
 /**
-* Send a GET requst using cURL
+* Send a GET request using cURL
 * @param string $url to request
 * @param array $get values to send
 * @param array $options for cURL
+* @param string $status status code of HTTP response
 * @return string
 */
-function curl_get($url, array $get = NULL, array $options = array()) {
+function curl_get($url, array $get = NULL, array $options = array(), &$status = NULL) {
 	$defaults = array(
         CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get),
         CURLOPT_HEADER => 0,
@@ -23,18 +24,20 @@ function curl_get($url, array $get = NULL, array $options = array()) {
         trigger_error(curl_error($ch));
     }
 
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     return $result;
 }
 
 /**
-* Send a POST requst using cURL
+* Send a POST request using cURL
 * @param string $url to request
 * @param string $post to send
 * @param array $options for cURL
+* @param string $status status code of HTTP response
 * @return string
 */
-function curl_post($url, $post = NULL, array $options = array())
+function curl_post($url, $post = NULL, array $options = array(), &$status = NULL)
 {
     $defaults = array(
         CURLOPT_POST => 1,
@@ -48,10 +51,13 @@ function curl_post($url, $post = NULL, array $options = array())
 
     $ch = curl_init();
     curl_setopt_array($ch, ($options + $defaults));
+
     if( ! $result = curl_exec($ch))
     {
         trigger_error(curl_error($ch));
     }
+
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     return $result;
 }
@@ -61,11 +67,12 @@ function curl_post($url, $post = NULL, array $options = array())
  * @param string $endpoint SPARQL endpoint to run the query against
  * @param string $payload SPARQL query string encoded as POST payload
  * @param array $options CURL options
+ * @param string $status status code of HTTP response
  * @return array an array of associative arrays containing the bindings
  */
-function execSelect($endpoint, $payload, $options) {
+function execSelect($endpoint, $payload, $options, &$status = NULL) {
 
-	$content = curl_post($endpoint, $payload, $options);
+	$content = curl_post($endpoint, $payload, $options, $status);
 
 	$xml = simplexml_load_string($content);
 	$results = array();
