@@ -1,28 +1,27 @@
 package edu.rpi.tw.sesf.facetontology;
 
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import edu.rpi.tw.sesf.facetontology.impl.FacetCollectionImpl;
+import edu.rpi.tw.sesf.s2s.data.JenaPelletSource;
+import edu.rpi.tw.sesf.s2s.data.SparqlSource;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import java.net.URL;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.ConfigurationException;
-import org.apache.commons.configuration.PropertiesConfiguration;
+import static org.junit.Assert.assertTrue;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-
-import junit.framework.TestCase;
-
-import edu.rpi.tw.sesf.facetontology.impl.FacetCollectionImpl;
-import edu.rpi.tw.sesf.s2s.data.JenaPelletSource;
-import edu.rpi.tw.sesf.s2s.data.SparqlSource;
-
-public class FacetCollectionTest extends TestCase {
-	private static String TEST_FILE_FORMAT = "N3";
-	private static String TEST_FILE = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl";
+public class FacetCollectionTest {
+	private static final String TEST_FILE_FORMAT = "N3";
 	private static final String TEST_URI = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl#FacetCollection";
 	private static final String TEST_CONNECTED_FACET = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl#ProgramsFacet";
 	private static final String TEST_INPUT_FACET = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl#ProjectsFacet";
@@ -30,44 +29,35 @@ public class FacetCollectionTest extends TestCase {
 	private static final String TEST_INPUT_FACET_VALUE2 = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/Project_163";
 	//private static final String TEST_RESULT = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/Person_1";
 	private static final String TEST_RESULT = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/Program_1";
+
+	private static final String SPARQL_ENDPOINT = "http://escience.rpi.edu:8890/sparql";
+	private static final String SPARQL_GRAPH = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/";
 	
 	private FacetCollection _facets;
-	private SparqlSource _sparql;
-	/**
-	 * @param name
-	 */
-	public FacetCollectionTest(String name) {
-		super(name);
+
+	private static SparqlSource _sparql;
+	private static Model _model;
+
+	@BeforeClass
+	public static void initialize() throws Exception {
+		URL testFile = FacetCollectionTest .class.getResource("/rdf/BCO-DMO/1.0/s2s.ttl");
+		_model = ModelFactory.createDefaultModel();
+		_model.read(testFile.openStream(), null, TEST_FILE_FORMAT);
+		_sparql = new SparqlSource("test", SPARQL_ENDPOINT, SPARQL_GRAPH);
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	protected void setUp() throws Exception {
-		super.setUp();
-		Model m = ModelFactory.createDefaultModel();
-		m.read(TEST_FILE, TEST_FILE_FORMAT);
-		_sparql = new SparqlSource("test","http://escience.rpi.edu:8890/sparql","http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/");
-		_facets = new FacetCollectionImpl(TEST_URI, new JenaPelletSource("test",m));
+	@Before
+	public void setUp() throws Exception {
+		_facets = new FacetCollectionImpl(TEST_URI, new JenaPelletSource("test", _model));
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#tearDown()
-	 */
-	protected void tearDown() throws Exception {
-		super.tearDown();
+	@After
+	public void tearDown() throws Exception {
 		_facets = null;
 	}
-	
+
+	@Test
 	public void testQueryBuilder() {
-		try {
-			Configuration config = new PropertiesConfiguration("src/main/resources/s2s.properties");
-			if (!config.containsKey("test.rpi") || !config.getBoolean("test.rpi")) {
-				return;
-			}
-		} catch (ConfigurationException e) {
-			return;
-		}
 		Map<String,Collection<String>> map = new HashMap<>();
 		map.put(TEST_INPUT_FACET, Arrays.asList(TEST_INPUT_FACET_VALUE, TEST_INPUT_FACET_VALUE2));
 		String query = _facets.buildConnectedFacetQuery(TEST_CONNECTED_FACET, map);
@@ -77,6 +67,7 @@ public class FacetCollectionTest extends TestCase {
 			QuerySolution qs = rs.next();
 			if (qs.contains("id") && qs.get("id").toString().equals(TEST_RESULT)) check = true;
 		}
+
 		assertTrue(check);
 	}
 }
