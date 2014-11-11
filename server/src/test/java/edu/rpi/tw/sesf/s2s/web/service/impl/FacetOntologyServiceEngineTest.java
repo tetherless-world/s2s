@@ -22,6 +22,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
+@Ignore
 public class FacetOntologyServiceEngineTest {
 
 	private static final String TEST_SERVICE_URI = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl#FacetOntologyService";

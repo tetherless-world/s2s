@@ -7,10 +7,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import edu.rpi.tw.sesf.facetontology.impl.FacetCollectionImpl;
 import edu.rpi.tw.sesf.s2s.data.JenaPelletSource;
 import edu.rpi.tw.sesf.s2s.data.SparqlSource;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -20,6 +17,7 @@ import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
+@Ignore
 public class FacetCollectionTest {
 	private static final String TEST_FILE_FORMAT = "N3";
 	private static final String TEST_URI = "http://aquarius.tw.rpi.edu/s2s/BCO-DMO/1.0/s2s.ttl#FacetCollection";
