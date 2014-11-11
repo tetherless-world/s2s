@@ -13,6 +13,7 @@ function curl_get($url, array $get = NULL, array $options = array(), &$status = 
         CURLOPT_URL => $url. (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get),
         CURLOPT_HEADER => 0,
         CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_FOLLOWLOCATION => TRUE,
         CURLOPT_TIMEOUT => 4
     );
 
@@ -46,6 +47,7 @@ function curl_post($url, $post = NULL, array $options = array(), &$status = NULL
         CURLOPT_FRESH_CONNECT => 1,
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_FORBID_REUSE => 1,
+        CURLOPT_FOLLOWLOCATION => TRUE,
         CURLOPT_POSTFIELDS => $post
     );
 
