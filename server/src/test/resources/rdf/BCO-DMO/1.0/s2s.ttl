@@ -156,7 +156,7 @@
 	core:hasDataSource :DataSource .
 
 :DataSource a core:SparqlEndpoint ;
-	core:location "http://escience.rpi.edu:8890/sparql"^^xsd:anyURI ;
+	core:location "http://escience.rpi.edu/endpoint/sparql"^^xsd:anyURI ;
 	core:defaultGraph "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/"^^xsd:anyURI ;
 	core:hasSparqlType core:VirtuosoSparql .
 

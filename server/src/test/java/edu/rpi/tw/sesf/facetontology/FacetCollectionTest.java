@@ -28,7 +28,7 @@ public class FacetCollectionTest {
 	//private static final String TEST_RESULT = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/Person_1";
 	private static final String TEST_RESULT = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/Program_1";
 
-	private static final String SPARQL_ENDPOINT = "http://escience.rpi.edu:8890/sparql";
+	private static final String SPARQL_ENDPOINT = "http://escience.rpi.edu/endpoint/sparql";
 	private static final String SPARQL_GRAPH = "http://escience.rpi.edu/ontology/BCO-DMO/bcodmo/3/0/";
 	
 	private FacetCollection _facets;
