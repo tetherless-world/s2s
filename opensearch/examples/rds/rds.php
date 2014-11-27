@@ -265,7 +265,7 @@ class RDS_S2SConfig extends S2SConfig
 				
 			case "keywords":
 				$body .= "?dataset a dcat:Dataset . ";
-				$body .= "?dataset vivo:freetextKeyword ?id . ";
+				$body .= "{ ?dataset vivo:freetextKeyword ?id } UNION { ?dataset dcat:keyword ?id } . ";
 				$body .= "BIND(str(?id) AS ?label) . ";
 				break;
 				
@@ -275,11 +275,11 @@ class RDS_S2SConfig extends S2SConfig
 				
 			case "datasets":
 				$body .= "?dataset a dcat:Dataset . ";
-				$body .= "?dataset dc:title ?l . ";
+				$body .= "{ ?dataset dc:title ?l } UNION { ?dataset dct:title ?l } UNION { ?dataset rdfs:label ?l } . ";
 				$body .= "OPTIONAL { ?dataset dc:identifier ?id . } ";
 				$body .= "OPTIONAL { ?dataset dct:issued ?issued_date . } ";
 				$body .= "OPTIONAL { ?dataset dcat:landingPage ?lp . } ";
-				$body .= "OPTIONAL { ?dataset dc:description ?description . } ";
+				$body .= "OPTIONAL { { ?dataset dc:description ?description } UNION { ?dataset dct:description ?description } UNION { ?dataset vivo:description ?description } . } ";
 				$body .= "BIND(str(?l) AS ?label) . ";
 				$body .= "BIND(str(?issued_date) AS ?issued) . ";
 				$body .= "BIND(str(?lp) AS ?landingPage) . ";
