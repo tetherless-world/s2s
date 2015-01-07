@@ -258,7 +258,7 @@ class RDS_S2SConfig extends S2SConfig
 				$body .= "?dataset a dcat:Dataset . ";
 				$body .= "?catalog dcat:dataset ?dataset . ";
 				$body .= "?catalog a dcat:Catalog . ";
-				$body .= "?catalog rdfs:label ?title . ";
+				$body .= "{ ?catalog rdfs:label ?title } UNION { ?catalog dct:title ?title } UNION { ?catalog dc:title ?title } . ";
 				$body .= "BIND(str(?title) AS ?label) . ";
 				$body .= "BIND(str(?catalog) AS ?id) . ";
 				break;
