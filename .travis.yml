@@ -5,3 +5,5 @@ jdk:
 - oraclejdk8
 install:
   - cd server
+script:
+  - mvn -Dmaven.test.skip=true package
