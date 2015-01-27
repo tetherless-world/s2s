@@ -54,14 +54,14 @@ WORKDIR s2s/server
 
 RUN mvn -Dmaven.test.skip=true package
 
-RUN cp target/s2s.war ${CATALINA_BASE}/webapp
+RUN cp target/s2s.war ${CATALINA_BASE}/webapps
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/temp
+#RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/temp
 RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/logs
-RUN chown -R tomcat7:tomcat7 ${CATALINA_HOME}/logs
+#RUN chown -R tomcat7:tomcat7 ${CATALINA_HOME}/logs
 
 EXPOSE 8080
 
