@@ -11,12 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -78,36 +74,35 @@ public class Utils {
 			return null;
 		}
 	}
-	
+
     public static void proxyResponse(String loc, HttpServletResponse response) throws IOException
     {
-		URL url = new URL(loc);
-		URLConnection conn = url.openConnection();
-		boolean access = false;
-		int nBytes = -1;
-		for (String key : conn.getHeaderFields().keySet()) {
-			if (key != null) {
-				for (String val : conn.getHeaderFields().get(key))
-				{
-					if (!key.equals("Transfer-Encoding"))
-						response.addHeader(key, val);
-					if (key.equals("Content-Length")) 
-						nBytes = Integer.parseInt(val);
-				}
-				if (key.equals("Access-Control-Allow-Origin")) access = true;
-			}
-		}
-		
-		if (!access) {
-			response.addHeader("Access-Control-Allow-Origin", "*");
-		}
-		
-		if (nBytes < 0) {
-			nBytes = 1024;
-		}
-		
-		try (PrintWriter writer = response.getWriter()) {
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()))) {
+        URL url = new URL(loc);
+        URLConnection conn = url.openConnection();
+        boolean access = false;
+        int nBytes = -1;
+        for (String key : conn.getHeaderFields().keySet()) {
+            if (key != null) {
+                for (String val : conn.getHeaderFields().get(key)) {
+                    if (!key.equals("Transfer-Encoding"))
+                        response.addHeader(key, val);
+                    if (key.equals("Content-Length"))
+                        nBytes = Integer.parseInt(val);
+                }
+                if (key.equals("Access-Control-Allow-Origin")) access = true;
+            }
+        }
+
+        if (!access) {
+            response.addHeader("Access-Control-Allow-Origin", "*");
+        }
+
+        if (nBytes < 0) {
+            nBytes = 1024;
+        }
+
+        try (PrintWriter writer = response.getWriter()) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
                 char[] bytes = new char[nBytes];
                 int readBytes;
                 while ((readBytes = br.read(bytes)) >= 0) {
@@ -118,7 +113,7 @@ public class Utils {
     }
     
 	public static Collection<DataSource> getDataSources(org.apache.commons.configuration.Configuration config, String property) {
-    	Vector<DataSource> sources = new Vector<>();
+    	Collection<DataSource> sources = new ArrayList<>();
     	if (config == null) {
     		sources.add(new RippleSource("default",RippleQueryEngineSingleton.getInstance()));
     	} else {
