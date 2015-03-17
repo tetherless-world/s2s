@@ -1,5 +1,6 @@
 FROM phusion/baseimage:0.9.15
 MAINTAINER Stephan Zednik <zednis2@rpi.edu>
+ENV REFRESHED_AT 2015-03-17
 
 ENV HOME /root
 
@@ -14,7 +15,7 @@ RUN apt-get -qq update
 RUN \
   apt-get update && \
   apt-get -y upgrade && \
-  apt-get install -y curl wget git unzip emacs man
+  apt-get install -y curl wget unzip emacs man
 
 # Install Java7 JDK
 RUN \
@@ -49,19 +50,16 @@ RUN mkdir /etc/service/tomcat7
 ADD docker/tomcat/tomcat7.sh /etc/service/tomcat7/run
 RUN chmod +x /etc/service/tomcat7/run
 
-RUN git clone https://github.com/tetherless-world/s2s.git s2s
-WORKDIR s2s/server
-
-RUN mvn -Dmaven.test.skip=true package
-
-RUN cp target/s2s.war ${CATALINA_BASE}/webapps
+ADD server/target/s2s.war ${CATALINA_BASE}/webapps/s2s.war
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-#RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/temp
+RUN mkdir -p ${CATALINA_BASE}/temp
+RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/temp
 RUN chown -R tomcat7:tomcat7 ${CATALINA_BASE}/logs
-#RUN chown -R tomcat7:tomcat7 ${CATALINA_HOME}/logs
+
+VOLUME ["${CATALINA_BASE}"]
 
 EXPOSE 8080
 
