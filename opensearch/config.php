@@ -157,21 +157,29 @@ abstract class S2SConfig
 		if($this->setCacheControlHeader()) {
 			header($this->getSearchResultCacheControlHeader());
 		}
-				
+
 		$html = "";
-		if ($count > 0) {
-			$html .= "<div>";
-			$html .= "<input type='hidden' name='startIndex' value='$offset'/>";
-			$html .= "<input type='hidden' name='itemsPerPage' value='$limit'/>";
-			$html .= "<input type='hidden' name='totalResults' value='$count'/>";
-			$html .= "</div>";
-		}
-			
-		$html .= "<div class='result-list'>";
-		foreach($results as $i => $result) {
-			$html .= $this->getSearchResultOutput($result);
-		}
+		$html .= "<div>";
+		$html .= "<input type='hidden' name='startIndex' value='$offset'/>";
+		$html .= "<input type='hidden' name='itemsPerPage' value='$limit'/>";
+		$html .= "<input type='hidden' name='totalResults' value='$count'/>";
 		$html .= "</div>";
+			
+		if ($count > 0)
+        {
+		    $html .= "<div class='result-list'>";
+		    foreach($results as $i => $result) {
+			$html .= $this->getSearchResultOutput($result);
+		    }
+		    $html .= "</div>";
+		}
+        else
+        {
+		    $html .= "<div>";
+		    $html .= "<br/>";
+            $html .= "No results match your selections<br/>" ;
+		    $html .= "</div>";
+        }
 		return $html;
 	}
 	
