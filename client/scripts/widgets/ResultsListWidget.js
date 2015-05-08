@@ -180,7 +180,11 @@ edu.rpi.tw.sesf.s2s.widgets.ResultsListWidget.prototype.update = function(data)
 		jQuery(config).children().each(function() {
 			if (parseInt(jQuery(this).val()) == self.limit) jQuery(this).attr("selected","selected");
 		});
-		jQuery(start).html("" + (this.offset + 1));
+		if(results == 0) {
+		    jQuery(start).html("" + this.offset);
+		} else {
+		    jQuery(start).html("" + (this.offset + 1));
+		}
 		jQuery(end).html("" + (this.offset + this.limit));
 		jQuery(total).html("" + results);
 		if ((this.offset + this.limit) >= results) {
