@@ -1,8 +1,9 @@
 FROM phusion/baseimage:0.9.15
 MAINTAINER Stephan Zednik <zednis2@rpi.edu>
-ENV REFRESHED_AT 2015-03-17
+ENV REFRESHED_AT 2015-05-21
 
 ENV HOME /root
+ENV BUILD_HOME /opt/build
 
 # Regenerate SSH host keys. baseimage-docker does not contain any, so you
 # have to do that yourself. You may also comment out this instruction; the
@@ -50,7 +51,12 @@ RUN mkdir /etc/service/tomcat7
 ADD docker/tomcat/tomcat7.sh /etc/service/tomcat7/run
 RUN chmod +x /etc/service/tomcat7/run
 
-ADD server/target/s2s.war ${CATALINA_BASE}/webapps/s2s.war
+# build and install s2s
+RUN apt-get install -y maven
+ADD server/ ${BUILD_HOME}
+WORKDIR ${BUILD_HOME}
+RUN mvn package
+RUN cp target/s2s.war ${CATALINA_BASE}/webapps/s2s.war
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
