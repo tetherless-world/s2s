@@ -88,7 +88,7 @@ edu.rpi.tw.sesf.s2s.widgets.FacetOntologyResultsTable.prototype.update = functio
 	}
 	table += "</tr></thead><tbody>"
 	for (var i = 1; i < results.length; ++i) {
-		table += "<tr><td><a target=\"_blank_\" href=\"" + results[i]["goal"] + "\"><img src=\"http://aquarius.tw.rpi.edu/s2s/2.0/ui/images/icon_info_gray.gif\" /></a></td>";
+		table += "<tr><td><a target=\"_blank_\" href=\"" + results[i]["goal"] + "\"><img src=\"../images/icon_info_gray.gif\" /></a></td>";
 		for (var j = 0; j < headers.length; ++j) {
 			var content = (results[i][headers[j]] != null) ? results[i][headers[j]] : "";
 			if (headers[j] != "Link" && headers[j] != "goal") table += "<td>" + content + "</td>";
