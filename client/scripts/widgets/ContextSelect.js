@@ -62,7 +62,7 @@ edu.rpi.tw.sesf.s2s.widgets.ContextSelect.prototype.update = function(data) {
 
     for (var i = 0; i < data.length; ++i) {
         var item = data[i];
-        var infoButtonImg = "../../images/icon_info_gray.gif";
+        var infoButtonImg = "s2s/client/images/icon_info_gray.gif";
         var label = (item['count'] != null) ? item['label'] + " (" + item['count'] + ") " : item['label'];
         var input;
         if (item['context'] != null) {
