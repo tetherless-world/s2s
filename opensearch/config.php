@@ -3,13 +3,13 @@
 include_once "utils.php";
 
 abstract class S2SConfig
-{	
+{
 	/**
 	* Return SPARQL endpoint URL
 	* @return string SPARQL endpoint URL
 	*/
 	abstract protected function getEndpoint();
-	
+
 	/**
 	* Return array of prefix, namespace key-value pairs
 	* @return array of prefix, namespace key-value pairs
@@ -97,7 +97,53 @@ abstract class S2SConfig
 		}
 		return $output;
 	}
-	
+
+	private $config;
+	private $config_file = "opensearch.ini";
+
+	/**
+	 * @return array configuration
+	 */
+	private function getConfig()
+	{
+		if (is_null($this->config) && file_exists($this->config_file)) {
+			$this->config = parse_ini_file($this->config_file, true);
+		}
+		return $this->config;
+	}
+
+	/**
+	 * @return bool use caching
+	 */
+	protected function useCaching() {
+		$config = $this->getConfig();
+		return (!is_null($config) && $config['caching']['use_caching'] == 1);
+	}
+
+	/**
+	 * @param $key
+	 * @return bool|string[] is entry in cache for specified key
+	 */
+	protected function exists_in_cache($key) {
+		return $this->useCaching() and apc_exists($key);
+	}
+
+	/**
+	 * @param $key
+	 * @return mixed get value from cache for specified key
+	 */
+	protected function fetch_from_cache($key) {
+		return ($this->useCaching() ? apc_fetch($key) : null);
+	}
+
+	protected function store_in_cache($key, $value) {
+		if($this->useCaching()) {
+			$config = $this->getConfig();
+			$ttl = $config['ttl'];
+			apc_store($key, $value, $ttl);
+		}
+	}
+
 	/**
 	* Return constraints component of SPARQL query
 	* @param array $constraints array of arrays with search constraints
@@ -169,7 +215,17 @@ abstract class S2SConfig
 			
 		$html .= "<div class='result-list'>";
 		foreach($results as $i => $result) {
-			$html .= $this->getSearchResultOutput($result);
+
+			$cache_key = "search_result:".implode($result);
+			$rs = ($this->exists_in_cache($cache_key)
+				? $this->fetch_from_cache($cache_key)
+				: $this->getSearchResultOutput($result));
+
+			$html .= $rs;
+
+			if($this->useCaching() and !$this->exists_in_cache($cache_key)) {
+				$this->store_in_cache($cache_key, $rs);
+			}
 		}
 		$html .= "</div>";
 		return $html;
@@ -201,11 +257,22 @@ abstract class S2SConfig
 	* @param string $sort query result sort parameter
 	* @return string representation of response to client
 	*/
-	public function getResponse($type, array $constraints, $limit=null, $offset=0, $sort=null) {
-	
-		$query = $this->getSelectQuery($type, $constraints, $limit, $offset, $sort);		
-		$results = $this->sparqlSelect($query);				
-		return $this->getOutput($results, $type, $constraints, $limit, $offset);
+	public function getResponse($type, array $constraints, $limit=null, $offset=0, $sort=null)
+	{
+		$key = implode(func_get_args());
+		if($this->exists_in_cache($key)) {
+			return $this->fetch_from_cache($key);
+		}
+
+		$query = $this->getSelectQuery($type, $constraints, $limit, $offset, $sort);
+		$results = $this->sparqlSelect($query);
+		$response = $this->getOutput($results, $type, $constraints, $limit, $offset);
+
+		if ($this->useCaching() and !$this->exists_in_cache($key)) {
+			$this->store_in_cache($key, $response);
+		}
+
+		return $response;
 	}
 	
 	/**
