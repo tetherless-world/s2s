@@ -139,7 +139,7 @@ abstract class S2SConfig
 	protected function store_in_cache($key, $value) {
 		if($this->useCaching()) {
 			$config = $this->getConfig();
-			$ttl = $config['ttl'];
+			$ttl = (isset($search_array['caching']['ttl']) ? $config['caching']['ttl'] : 0);
 			apc_store($key, $value, $ttl);
 		}
 	}
