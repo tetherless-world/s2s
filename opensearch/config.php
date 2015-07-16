@@ -121,21 +121,25 @@ abstract class S2SConfig
 	}
 
 	/**
-	 * @param $key
-	 * @return bool|string[] is entry in cache for specified key
+	 * @param $key string cache key
+	 * @return bool is entry in cache for specified key
 	 */
 	protected function exists_in_cache($key) {
 		return $this->useCaching() and apc_exists($key);
 	}
 
 	/**
-	 * @param $key
+	 * @param $key string cache key
 	 * @return mixed get value from cache for specified key
 	 */
 	protected function fetch_from_cache($key) {
 		return ($this->useCaching() ? apc_fetch($key) : null);
 	}
 
+	/**
+	 * @param $key string cache key
+	 * @param $value string value to cache
+	 */
 	protected function store_in_cache($key, $value) {
 		if($this->useCaching()) {
 			$config = $this->getConfig();
